@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { createPortal } from 'react-dom'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import {
@@ -104,6 +105,173 @@ const menuCategories = [
     ]
   }
 ]
+
+// Mobile Menu Component with Portal
+function MobileMenu({
+  mobileMenuOpen,
+  setMobileMenuOpen,
+  activeMenu,
+  handleMenuClick,
+  menuCategories,
+  handleCategoryHover,
+  closeAllMenus,
+}: {
+  mobileMenuOpen: boolean
+  setMobileMenuOpen: (open: boolean) => void
+  activeMenu: string | null
+  handleMenuClick: (menu: string) => void
+  menuCategories: typeof menuCategories
+  handleCategoryHover: (category: string) => void
+  closeAllMenus: () => void
+}) {
+  if (!mobileMenuOpen) return null
+
+  return createPortal(
+    <>
+      {/* Backdrop - z-index sangat tinggi */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        className="fixed inset-0 bg-black/70 backdrop-blur-sm lg:hidden"
+        onClick={() => setMobileMenuOpen(false)}
+        style={{ zIndex: 999998 }}
+      />
+
+      {/* Menu Content - z-index paling tinggi */}
+      <motion.div
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '100%' }}
+        transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+        className="fixed inset-y-0 right-0 w-full max-w-sm bg-white dark:bg-gray-900 lg:hidden overflow-y-auto shadow-2xl"
+        style={{ zIndex: 999999 }}
+      >
+        <div className="p-6">
+          {/* Mobile Header */}
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-lg">
+                <Globe2 className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">JE-P3</h2>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Menu Navigasi</p>
+              </div>
+            </div>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+              <X className="w-5 h-5 text-gray-500" />
+            </button>
+          </div>
+
+          {/* Menu Items */}
+          <div className="space-y-2">
+            {menuCategories.map((category) => (
+              <div key={category.label}>
+                <button
+                  onClick={() => handleMenuClick(category.label)}
+                  className="w-full flex items-center justify-between p-4 rounded-xl hover:bg-gradient-to-r hover:from-emerald-50 hover:to-amber-50 dark:hover:from-emerald-950/30 dark:hover:to-amber-950/30 transition-all group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`p-2 rounded-lg ${
+                      category.label === 'Utama' ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400' :
+                      category.label === 'Ekosistem' ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400' :
+                      category.label === 'Pimpinan' ? 'bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400' :
+                      category.label === 'Edukasi' ? 'bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400' :
+                      category.label === 'Member' ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400' :
+                      category.label === 'Media' ? 'bg-pink-100 dark:bg-pink-900/50 text-pink-600 dark:text-pink-400' :
+                      'bg-violet-100 dark:bg-violet-900/50 text-violet-600 dark:text-violet-400'
+                    }`}>
+                      {category.label === 'Utama' && <Home className="w-4 h-4" />}
+                      {category.label === 'Ekosistem' && <Layers className="w-4 h-4" />}
+                      {category.label === 'Pimpinan' && <Users className="w-4 h-4" />}
+                      {category.label === 'Edukasi' && <GraduationCap className="w-4 h-4" />}
+                      {category.label === 'Member' && <Crown className="w-4 h-4" />}
+                      {category.label === 'Media' && <Tv className="w-4 h-4" />}
+                      {category.label === 'Investor' && <DollarSign className="w-4 h-4" />}
+                    </div>
+                    <div className="text-left">
+                      <span className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
+                        {category.label}
+                      </span>
+                      <span className="block text-xs text-gray-500 dark:text-gray-400">
+                        {category.items.length} menu
+                      </span>
+                    </div>
+                  </div>
+                  <ChevronDown
+                    className={`w-4 h-4 text-gray-400 transition-transform ${
+                      activeMenu === category.label ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+
+                {/* Submenu Items */}
+                <AnimatePresence>
+                  {activeMenu === category.label && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pl-12 pr-4 py-2 space-y-1">
+                        {category.items.map((item, idx) => {
+                          const Icon = item.icon
+                          return (
+                            <Link
+                              key={idx}
+                              href={item.href}
+                              onClick={() => {
+                                closeAllMenus()
+                                setMobileMenuOpen(false)
+                              }}
+                              className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group/item"
+                            >
+                              <Icon className="w-4 h-4 text-gray-400 group-hover/item:text-emerald-600 transition-colors" />
+                              <div>
+                                <p className="text-sm font-medium text-gray-900 dark:text-gray-100 group-hover/item:text-emerald-600 transition-colors">
+                                  {item.name}
+                                </p>
+                                <p className="text-xs text-gray-500 dark:text-gray-400">
+                                  {item.description}
+                                </p>
+                              </div>
+                            </Link>
+                          )
+                        })}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800">
+            <Button
+              onClick={() => {
+                document.getElementById('registration')?.scrollIntoView({ behavior: 'smooth' })
+                setMobileMenuOpen(false)
+              }}
+              className="w-full bg-gradient-to-r from-emerald-600 to-amber-600 hover:from-emerald-700 hover:to-amber-700 text-white font-semibold py-3 rounded-lg shadow-lg"
+            >
+              <Crown className="w-4 h-4 mr-2" />
+              Join JE-P3
+            </Button>
+          </div>
+        </div>
+      </motion.div>
+    </>,
+    document.body
+  )
+}
 
 export function JEP3Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -289,8 +457,9 @@ export function JEP3Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+            className="lg:hidden p-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all active:scale-95 bg-white dark:bg-gray-900 shadow-md"
             aria-label="Toggle menu"
+            style={{ zIndex: 999999, position: 'relative' }}
           >
             <AnimatePresence mode="wait">
               {mobileMenuOpen ? (
@@ -319,150 +488,16 @@ export function JEP3Navigation() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
-              onClick={() => setMobileMenuOpen(false)}
-            />
-            
-            {/* Menu Content */}
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed inset-y-0 right-0 w-full max-w-sm bg-white dark:bg-gray-900 z-50 lg:hidden overflow-y-auto"
-            >
-              <div className="p-6">
-                {/* Mobile Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-lg">
-                      <Globe2 className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">JE-P3</h2>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">Menu Navigasi</p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                  >
-                    <X className="w-5 h-5 text-gray-500" />
-                  </button>
-                </div>
-
-                {/* Menu Items */}
-                <div className="space-y-2">
-                  {menuCategories.map((category) => (
-                    <div key={category.label}>
-                      <button
-                        onClick={() => handleMenuClick(category.label)}
-                        className="w-full flex items-center justify-between p-4 rounded-xl hover:bg-gradient-to-r hover:from-emerald-50 hover:to-amber-50 dark:hover:from-emerald-950/30 dark:hover:to-amber-950/30 transition-all group"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className={`p-2 rounded-lg ${
-                            category.label === 'Utama' ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400' :
-                            category.label === 'Ekosistem' ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400' :
-                            category.label === 'Pimpinan' ? 'bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400' :
-                            category.label === 'Edukasi' ? 'bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400' :
-                            category.label === 'Member' ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400' :
-                            category.label === 'Media' ? 'bg-pink-100 dark:bg-pink-900/50 text-pink-600 dark:text-pink-400' :
-                            'bg-violet-100 dark:bg-violet-900/50 text-violet-600 dark:text-violet-400'
-                          }`}>
-                            {category.label === 'Utama' && <Home className="w-4 h-4" />}
-                            {category.label === 'Ekosistem' && <Layers className="w-4 h-4" />}
-                            {category.label === 'Pimpinan' && <Users className="w-4 h-4" />}
-                            {category.label === 'Edukasi' && <GraduationCap className="w-4 h-4" />}
-                            {category.label === 'Member' && <Crown className="w-4 h-4" />}
-                            {category.label === 'Media' && <Tv className="w-4 h-4" />}
-                            {category.label === 'Investor' && <DollarSign className="w-4 h-4" />}
-                          </div>
-                          <div className="text-left">
-                            <span className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
-                              {category.label}
-                            </span>
-                            <span className="block text-xs text-gray-500 dark:text-gray-400">
-                              {category.items.length} menu
-                            </span>
-                          </div>
-                        </div>
-                        <ChevronDown
-                          className={`w-4 h-4 text-gray-400 transition-transform ${
-                            activeMenu === category.label ? 'rotate-180' : ''
-                          }`}
-                        />
-                      </button>
-
-                      {/* Mobile Submenu */}
-                      <AnimatePresence>
-                        {activeMenu === category.label && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="pl-4 pr-2 space-y-1 overflow-hidden"
-                          >
-                            {category.items.map((item, itemIdx) => {
-                              const Icon = item.icon
-                              return (
-                                <Link
-                                  key={itemIdx}
-                                  href={item.href}
-                                  onClick={() => {
-                                    closeAllMenus()
-                                    setMobileMenuOpen(false)
-                                  }}
-                                  className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group/subitem"
-                                >
-                                  <Icon className="w-4 h-4 text-emerald-600 dark:text-emerald-400 group-hover/subitem:scale-110 transition-transform" />
-                                  <div className="flex-1 min-w-0">
-                                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                                      {item.name}
-                                    </span>
-                                    <span className="block text-xs text-gray-400 dark:text-gray-500 truncate">
-                                      {item.description}
-                                    </span>
-                                  </div>
-                                </Link>
-                              )
-                            })}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Mobile CTA */}
-                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-800">
-                  <Button
-                    onClick={() => {
-                      document.getElementById('registration')?.scrollIntoView({ behavior: 'smooth' })
-                      setMobileMenuOpen(false)
-                    }}
-                    className="w-full bg-gradient-to-r from-emerald-600 to-amber-600 text-white font-semibold py-4 rounded-xl shadow-lg flex items-center justify-center gap-2"
-                  >
-                    <Crown className="w-5 h-5" />
-                    Daftar Sekarang
-                    <ArrowRight className="w-5 h-5" />
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      {/* Mobile Menu with Portal - renders outside header */}
+      <MobileMenu
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
+        activeMenu={activeMenu}
+        handleMenuClick={handleMenuClick}
+        menuCategories={menuCategories}
+        handleCategoryHover={handleCategoryHover}
+        closeAllMenus={closeAllMenus}
+      />
     </header>
   )
 }
