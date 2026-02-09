@@ -152,7 +152,7 @@ export function SiteFooter() {
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Phone className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-                <span>+62 21 XXXX XXXX</span>
+                <span>+62812 2234 5856</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Mail className="w-5 h-5 text-emerald-500 flex-shrink-0" />
