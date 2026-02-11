@@ -29,7 +29,10 @@ import {
   Target,
   TrendingUp,
   ChevronUp,
-  Clock
+  Clock,
+  Sparkles,
+  Users,
+  Globe
 } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
 
@@ -50,120 +53,228 @@ export function RegistrationSection() {
     membershipTier: '',
   })
 
+  // Helper function to format number to Indonesian Rupiah
+  const formatRp = (price: number): string => {
+    if (price === 0) return 'GRATIS'
+    return 'Rp' + price.toLocaleString('id-ID')
+  }
+
   const membershipTiers = [
     {
-      id: 'founding-member',
-      name: 'Founding Member',
-      price: 'Rp250.000',
-      originalPrice: 'Rp1.000.000',
-      discount: '75%',
-      quota: '10.000 slot',
+      id: 'petani',
+      name: 'Petani Digital',
+      price: 'GRATIS',
+      originalPrice: undefined,
+      discount: '',
+      quota: '83.763 slot (1 per desa)',
+      for: 'Petani & Pekebun Indonesia',
+      icon: Sparkles,
+      recommended: false,
+      color: 'from-amber-400 to-amber-600',
+      badge: 'BEASISWA DIGITAL',
+      description: 'Subsidi Ekosistem untuk Petani & Pekebun',
+      features: [
+        'Akses pppbisnis.com Full',
+        'Passport Blockchain Digital',
+        'Dashboard Manajemen Hasil Panen',
+        'Pelatihan Digital Farming',
+        'Akses Marketplace Desa',
+        'Sertifikasi Produk Ekspor',
+        'Akses Komunitas Tani Digital',
+        'Consultation Gratis Pakar Agrikultur'
+      ],
+    },
+    {
+      id: 'founding',
+      name: 'Anggota Awal JEP3',
+      price: formatRp(250000),
+      originalPrice: formatRp(1000000),
+      discount: '75% OFF',
+      quota: '10.000 slot eksklusif',
       for: 'Pengusaha Desa/Kota, Kader PPP, Non-PPP',
       icon: Crown,
       recommended: true,
       color: 'from-emerald-500 to-amber-500',
-      badge: 'Populer',
+      badge: 'POPULER',
+      description: 'Kuasai Cara Bertahan Hidup & Raup Cuan',
       features: [
         'Profil di direktori pengusaha JE-P3 nasional',
         'Akses marketplace & JP3 Pay',
         'Prioritas program pelatihan batch awal',
         'Badge "Founding Member" di profil & sertifikat digital',
         'Akses grup komunitas eksklusif (WhatsApp/Telegram)',
+        'Free Banner Profile JE-P3',
+        'Akses Early-Stage Investment',
+        'Priority Customer Support',
+        'Exclusive Webinar Series',
+        'Digital Marketing Kit'
       ],
     },
     {
-      id: 'koperasi-partner',
-      name: 'Koperasi & BUMDes Partner',
-      price: 'Rp1.000.000',
-      originalPrice: 'Rp4.000.000',
-      discount: '75%',
-      quota: '2.000 entitas',
+      id: 'koperasi',
+      name: 'Koperasi & BUMDes Aggregator',
+      price: formatRp(2500000),
+      originalPrice: formatRp(10000000),
+      discount: '75% OFF',
+      quota: '83.763 slot (1 per desa)',
       for: 'Pengurus Koperasi/BUMDes',
       icon: Building2,
+      recommended: false,
       color: 'from-blue-500 to-cyan-500',
-      badge: 'Kolektif',
+      badge: 'KOLEKTIF',
+      description: 'Modal Rp10 Juta - Aggregator Produk Desa',
       features: [
         'Akses modul agregasi hasil produksi',
         'Slot prioritas sebagai hub utama di desa/kecamatan',
         'Undangan ke "Koperasi Digital Nasional" 2x setahun',
         'Fitur distribusi keuntungan otomatis',
         'Laporan keuangan terintegrasi blockchain',
+        'Dashboard Multi-Desa Management',
+        'Supply Chain Access Prioritas',
+        'Grants & Funding Opportunities',
+        'Training Kepemimpinan Digital',
+        'Co-Branding Koperasi Digital',
+        'API Integration Partners',
+        'Monthly Performance Report'
       ],
     },
     {
-      id: 'regional-kecamatan',
-      name: 'Regional Builder - Kecamatan',
-      price: 'Rp2.500.000',
-      originalPrice: 'Rp10.000.000',
-      discount: '75%',
-      quota: '1.000 kecamatan',
-      for: 'Pengusaha Lokal',
+      id: 'kecamatan',
+      name: 'Regional Builder (Kecamatan)',
+      price: formatRp(10000000),
+      originalPrice: formatRp(40000000),
+      discount: '75% OFF',
+      quota: '7.213 kecamatan (1 per kecamatan)',
+      for: 'Pengusaha Lokal, Tokoh Masyarakat, Pengusaha UMKM',
       icon: MapPin,
+      recommended: false,
       color: 'from-purple-500 to-pink-500',
-      badge: 'Kecamatan',
+      badge: 'KECAMATAN',
+      description: 'Level Kecamatan - Monopol Area Eksklusif',
       features: [
         'Eksklusif: "Channel Resmi Ekosistem" di wilayah',
-        'Hak mengelola 10-100 desa di wilayahnya',
+        'Hak mengelola 10-20 desa di wilayahnya',
         'Akses langsung ke National Board untuk perencanaan',
         'Bagi hasil transaksi & pelatihan wilayah',
         'Desa Sponsorship Program (sponsor 5 desa)',
+        'Logistics Hub Exclusif Kecamatan',
+        'Real-time Dashboard Analytics',
+        'Territory Protection Guarantee',
+        'Priority Export Access',
+        'Custom Business Model Support',
+        'Digital Transformation Workshop',
+        'Regional Networking Events',
+        'Annual Strategic Planning Session',
+        'Branding & Marketing Material'
       ],
     },
     {
-      id: 'regional-kabupaten',
-      name: 'Regional Builder - Kabupaten',
-      price: 'Rp6.250.000',
-      originalPrice: 'Rp25.000.000',
-      discount: '75%',
-      quota: '514 kabupaten/kota',
-      for: 'Pengusaha Lokal/Koalisi',
+      id: 'kabupaten',
+      name: 'Regional Builder (Kabupaten)',
+      price: formatRp(15000000),
+      originalPrice: formatRp(60000000),
+      discount: '75% OFF',
+      quota: '514 kabupaten/kota (1 per kabupaten)',
+      for: 'Pengusaha Lokal/Koalisi, Bupati/Walikota, Tokoh Daerah',
       icon: Map,
+      recommended: false,
       color: 'from-violet-500 to-fuchsia-500',
-      badge: 'Kabupaten',
+      badge: 'KABUPATEN',
+      description: 'Level Kabupaten - Akses 10-100 Desa',
       features: [
         'Channel resmi untuk kota/kabupaten besar',
         'Koordinasi koperasi, BUMDes, & pengusaha lokal',
         'Implementasi smart village skala kota',
         'Akses program nasional & regional',
         'Leaderboard nasional & reward system',
+        'Managing 10-100 Desa Access',
+        'Distribution Hub Regional',
+        'Cross-Region Trade Access',
+        'Government Partnership Support',
+        'Policy Advisory Services',
+        'Infrastructure Development Planning',
+        'Quarterly Business Review',
+        'Exclusive Investor Network',
+        'Global Market Access Priority',
+        'AI-Powered Business Intelligence',
+        'Custom Mobile App White-label',
+        'Dedicated Account Manager'
       ],
     },
     {
-      id: 'regional-provinsi',
-      name: 'Regional Builder - Provinsi',
-      price: 'Rp25.000.000',
-      originalPrice: 'Rp100.000.000',
-      discount: '75%',
-      quota: '38 provinsi',
-      for: 'Pengusaha Strategis',
+      id: 'provinsi',
+      name: 'Regional Builder (Provinsi)',
+      price: formatRp(125000000),
+      originalPrice: formatRp(500000000),
+      discount: '75% OFF',
+      quota: '38 provinsi (1 per provinsi)',
+      for: 'Pengusaha Strategis, Gubernur, Konglomerat Daerah',
       icon: Globe2,
+      recommended: false,
       color: 'from-rose-500 to-orange-500',
-      badge: 'Provinsi',
+      badge: 'PROVINSI',
+      description: 'Level Provinsi - Akses Multi-Kabupaten',
       features: [
         'Channel resmi untuk seluruh provinsi',
         'Akses dewan nasional JE-P3',
         'Perencanaan program regional bersama National Board',
         'Forum "Koperasi Digital Nasional"',
         'Jaringan investor & peluang bisnis regional',
+        'Managing Multiple Kabupaten Access',
+        'Provincial Trade Hub Authority',
+        'National & International Export License',
+        'Government Relations Support',
+        'Strategic Partnership Allocation',
+        'Blockchain-Based Province System',
+        'Digital Economy Blueprint Access',
+        'VIP Event Access (National/International)',
+        'Private Equity Funding Opportunities',
+        'Custom Province Ecosystem',
+        'Dedicated Provincial Team',
+        'Revenue Sharing Multi-Tier',
+        'Technology Infrastructure Setup',
+        'Legal & Compliance Advisory',
+        'Media & PR Campaign Support'
       ],
     },
     {
-      id: 'national-strategic',
+      id: 'regional',
       name: 'National Strategic Partner',
-      price: 'Rp125.000.000',
-      originalPrice: 'Rp500.000.000',
-      discount: '75%',
-      quota: 'Terbatas (invitation only)',
-      for: 'Investor, Konglomerat, Lembaga',
+      price: formatRp(1000000000),
+      originalPrice: formatRp(4000000000),
+      discount: '75% OFF',
+      quota: '10 slot (invitation only)',
+      for: 'Investor Global, Konglomerat Nasional, Sovereign Wealth Fund',
       icon: Trophy,
+      recommended: false,
       color: 'from-amber-400 to-yellow-500',
-      badge: 'Strategis',
+      badge: 'STRATEGIS',
+      description: 'Level National - Domination Multi-Sector',
       features: [
         'Kursi di "National Economic Council" JE-P3',
         'Akses laporan dampak nasional teragregat',
         'Data strategis nasional (bukan individual)',
         'Co-branding program desa digital nasional',
         'Prioritas di semua program pilot nasional',
+        'Access to 83,763 Villages Network',
+        'Global Trade Partnership Authority',
+        'Sovereign Data Access Right',
+        'Multi-Billion Dollar Deal Flow',
+        'National Infrastructure Participation',
+        'Private Policy Advisory Board',
+        'Custom Strategic Initiative',
+        'Exclusive Boardroom Access',
+        'International Summit Pass',
+        'Dedicated Government Liaison',
+        'Full Ecosystem Profit Sharing',
+        'White-label Platform License',
+        'Custom Blockchain Implementation',
+        'National Media Partnership',
+        'Annual National Economic Summit Host',
+        'Legacy Digital Monument',
+        'Lifetime Recognition Award',
+        'Succession Planning Support',
+        'Family Wealth Management Access'
       ],
     },
   ]
@@ -220,25 +331,25 @@ export function RegistrationSection() {
 
           {/* Pre-Launch Banner */}
           <div className="mb-8">
-            <div className="bg-gradient-to-r from-emerald-600 via-amber-500 to-orange-600 rounded-2xl p-6 text-center shadow-xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-white/10 animate-pulse-glow"></div>
+            <div className="bg-green-900 rounded-2xl p-6 text-center shadow-xl relative overflow-hidden border-2 border-green-800">
+              <div className="absolute inset-0 bg-green-800/30 animate-pulse"></div>
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-3 mb-2">
-                  <Crown className="w-8 h-8 text-white animate-pulse" />
+                  <Crown className="w-8 h-8 text-amber-400 animate-pulse" />
                   <h3 className="text-2xl md:text-3xl font-bold text-white">
                     Membership JE-P3 - Sekali Bayar Seumur Hidup
                   </h3>
                 </div>
                 <p className="text-white/90 text-sm md:text-base">
-                  Jadilah salah satu dari <span className="font-bold text-white">10.000 Founding Member</span> pertama JE-P3!
+                  Jadilah salah satu dari <span className="font-bold text-amber-300">10.000 Founding Member</span> pertama JE-P3!
                   <span className="block mt-2">Diskon 75% - Berbayar sekali saja, akses seumur hidup!</span>
                 </p>
                 <div className="flex items-center justify-center gap-4 mt-4">
-                  <Badge className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full">
+                  <Badge className="bg-amber-500/90 hover:bg-amber-500 text-white px-4 py-2 rounded-full">
                     <TrendingUp className="w-4 h-4" />
                     Sisa ~7,xxx slot
                   </Badge>
-                  <Badge className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full">
+                  <Badge className="bg-amber-500/90 hover:bg-amber-500 text-white px-4 py-2 rounded-full">
                     <Clock className="w-4 h-4" />
                     Promo Berakhir 28 Februari 2026
                   </Badge>
@@ -273,46 +384,50 @@ export function RegistrationSection() {
                   <div className={`bg-gradient-to-br ${tier.color} p-4 -mt-6`}>
                     <div className="flex items-start justify-between gap-3">
                       <div className={`p-3 bg-white/20 backdrop-blur-sm rounded-xl`}>
-                        <TierIcon className="w-6 h-6 text-white" />
+                        <TierIcon className="w-6 h-6 md:w-7 md:h-7 text-white" />
                       </div>
                       <div className="text-right">
-                        <p className="text-xs text-white/80">Promo Spesial</p>
-                        <p className="text-lg font-bold text-white">{tier.price}</p>
-                        <p className="text-xs text-white/70 line-through opacity-60">{tier.originalPrice}</p>
+                        <p className="text-xs md:text-sm text-white/80">{tier.price === 'GRATIS' ? 'Beasiswa Digital' : 'Promo Spesial'}</p>
+                        <p className="text-xl md:text-2xl font-bold text-white leading-tight">{tier.price}</p>
+                        {tier.originalPrice && (
+                          <p className="text-xs md:text-sm text-white/70 line-through opacity-60">{tier.originalPrice}</p>
+                        )}
                       </div>
                     </div>
                   </div>
 
-                  <CardHeader className="space-y-2 pt-4">
-                    <CardTitle className={`text-lg font-bold ${tier.recommended ? 'text-amber-600 dark:text-amber-400' : 'text-gray-900 dark:text-gray-100'} text-gradient-animate`}>
+                  <CardHeader className="space-y-3 pt-4">
+                    <CardTitle className={`text-xl md:text-2xl font-bold ${tier.recommended ? 'text-amber-600 dark:text-amber-400' : 'text-gray-900 dark:text-gray-100'} text-gradient-animate leading-tight`}>
                       {tier.name}
                     </CardTitle>
-                    <div className="flex items-center gap-2">
-                      <Badge variant="outline" className="text-xs font-semibold">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+                      <Badge variant="outline" className="text-xs sm:text-sm font-semibold text-wrap break-words max-w-full">
                         {tier.badge}
                       </Badge>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">
+                      <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                         {tier.quota}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                       {tier.for}
                     </p>
                   </CardHeader>
 
                   <CardContent className="space-y-4">
-                    <div className="flex items-center gap-2 px-3 py-2 bg-emerald-50 dark:bg-emerald-950/30 rounded-lg">
-                      <Zap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                      <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">
-                        Diskon Promo: {tier.discount} • Sekali Bayar
-                      </span>
-                    </div>
+                    {tier.discount && (
+                      <div className="flex items-center gap-2 px-3 py-2 bg-emerald-50 dark:bg-emerald-950/30 rounded-lg">
+                        <Zap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                        <span className="text-sm md:text-base font-semibold text-emerald-700 dark:text-emerald-300">
+                          Diskon Promo: {tier.discount} • Sekali Bayar
+                        </span>
+                      </div>
+                    )}
 
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       {tier.features.slice(0, 3).map((feature, fIndex) => (
-                        <div key={fIndex} className="flex items-start gap-2 group/feature">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5 icon-hover-glow" />
-                          <span className="text-sm text-gray-700 dark:text-gray-300 group-hover/feature:text-emerald-600 dark:group-hover/feature:text-emerald-400 transition-colors">
+                        <div key={fIndex} className="flex items-start gap-3 group/feature">
+                          <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5 icon-hover-glow" />
+                          <span className="text-sm md:text-base text-gray-700 dark:text-gray-300 group-hover/feature:text-emerald-600 dark:group-hover/feature:text-emerald-400 transition-colors leading-relaxed">
                             {feature}
                           </span>
                         </div>
@@ -323,7 +438,7 @@ export function RegistrationSection() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="w-full text-xs text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/30"
+                        className="w-full text-xs sm:text-sm text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 py-3"
                         onClick={() => setSelectedTier(tier.id)}
                       >
                         +{tier.features.length - 3} fitur lainnya
