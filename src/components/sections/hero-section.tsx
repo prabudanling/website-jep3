@@ -12,6 +12,46 @@ export function HeroSection() {
   const [isMounted, setIsMounted] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const [typedText, setTypedText] = useState('')
+  const [showCursor, setShowCursor] = useState(true)
+  const [typingStarted, setTypingStarted] = useState(false)
+
+  const fullText = 'Super-Ekosistem Terobosan 2026–2030'
+
+  // Typewriter effect
+  useEffect(() => {
+    // Start typing after a small delay
+    const startDelay = setTimeout(() => {
+      setTypingStarted(true)
+    }, 500)
+
+    return () => clearTimeout(startDelay)
+  }, [])
+
+  useEffect(() => {
+    if (!typingStarted) return
+
+    let index = 0
+    const typingInterval = setInterval(() => {
+      if (index < fullText.length) {
+        setTypedText(fullText.slice(0, index + 1))
+        index++
+      } else {
+        clearInterval(typingInterval)
+      }
+    }, 100) // Kecepatan mengetik: 100ms per karakter
+
+    return () => clearInterval(typingInterval)
+  }, [typingStarted])
+
+  // Cursor blink effect
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor(prev => !prev)
+    }, 500) // Cursor berkedip setiap 500ms
+
+    return () => clearInterval(cursorInterval)
+  }, [])
 
   // Generate particles only on client after mount
   useEffect(() => {
@@ -100,7 +140,7 @@ export function HeroSection() {
                         <div className="flex-shrink-0 p-3 md:p-4 rounded-full bg-white/20">
                           <Icon className="w-6 h-6 md:w-8 md:h-8 text-white animate-bounce-subtle" />
                         </div>
-                        <p className="text-center text-base md:text-lg font-bold text-white">
+                        <p className="text-center text-lg md:text-2xl lg:text-3xl font-bold text-white leading-tight">
                           {slide.text}
                         </p>
                       </div>
@@ -117,7 +157,7 @@ export function HeroSection() {
                     onClick={() => setCurrentSlide(index)}
                     className={`h-2 md:h-2.5 rounded-full transition-all duration-300 ${
                       index === currentSlide
-                           ? 'w-8 md:w-12 bg-white animate-pulse'
+                        ? 'w-8 md:w-12 bg-white animate-pulse'
                         : 'w-2 md:w-2.5 bg-white/50 hover:bg-white/70'
                     }`}
                     aria-label={`Slide ${index + 1}`}
@@ -164,15 +204,18 @@ export function HeroSection() {
 
         <div className="relative z-10 container mx-auto px-4 py-20">
           <div className="max-w-6xl mx-auto text-center space-y-12">
-            {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-full border border-emerald-200 dark:border-emerald-800 transition-all duration-700 animate-pop-in">
-            <AnimatedIcon animation="pulse-glow" duration={2}>
-              <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-            </AnimatedIcon>
-            <span className="text-sm font-medium text-emerald-700 dark:text-emerald-300">
-              Super-Ekosistem Terobosan 2026–2030
-            </span>
-          </div>
+            {/* Badge - Simple & Professional dengan Typewriter Effect */}
+            <div className="inline-flex items-center gap-3 md:gap-4 px-6 md:px-8 py-4 md:py-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-green-600 dark:border-green-400 shadow-xl transition-all duration-700 animate-pop-in">
+              <AnimatedIcon animation="pulse-glow" duration={2}>
+                <Sparkles className="w-7 h-7 md:w-8 md:h-8 text-green-700 dark:text-green-400" />
+              </AnimatedIcon>
+              <span className="text-xl md:text-2xl lg:text-3xl font-extrabold text-green-800 dark:text-green-300 tracking-tight">
+                {typedText}
+                {showCursor && typingStarted && (
+                  <span className="inline-block w-1 h-6 md:h-7 lg:h-8 bg-green-600 dark:bg-green-400 ml-1 animate-pulse"></span>
+                )}
+              </span>
+            </div>
 
           {/* Main Heading */}
           <div className="space-y-6 animate-fade-in-up">
