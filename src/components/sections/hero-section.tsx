@@ -96,9 +96,9 @@ export function HeroSection() {
                         right: 0,
                       }}
                     >
-                      <div className="flex items-center justify-center gap-3">
-                        <div className="flex-shrink-0 p-1.5 rounded-full bg-white/20">
-                          <Icon className="w-4 h-4 text-white animate-bounce-subtle" />
+                      <div className="flex items-center justify-center gap-4 md:gap-6">
+                        <div className="flex-shrink-0 p-3 md:p-4 rounded-full bg-white/20">
+                          <Icon className="w-6 h-6 md:w-8 md:h-8 text-white animate-bounce-subtle" />
                         </div>
                         <p className="text-center text-base md:text-lg font-bold text-white">
                           {slide.text}
@@ -110,15 +110,15 @@ export function HeroSection() {
               </div>
 
               {/* Navigation Dots */}
-              <div className="flex justify-center gap-1.5 mt-2">
+              <div className="flex justify-center gap-2 md:gap-3 mt-3 md:mt-4">
                 {marqueeSlides.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
-                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                    className={`h-2 md:h-2.5 rounded-full transition-all duration-300 ${
                       index === currentSlide
-                        ? 'w-6 bg-white animate-pulse'
-                        : 'w-1.5 bg-white/50 hover:bg-white/70'
+                           ? 'w-8 md:w-12 bg-white animate-pulse'
+                        : 'w-2 md:w-2.5 bg-white/50 hover:bg-white/70'
                     }`}
                     aria-label={`Slide ${index + 1}`}
                   />
