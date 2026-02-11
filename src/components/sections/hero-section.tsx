@@ -67,14 +67,14 @@ export function HeroSection() {
     <section className="relative min-h-screen flex flex-col overflow-hidden">
       {/* Marquee Slider */}
       <div
-        className="bg-gradient-to-r from-emerald-600 via-amber-600 to-emerald-600 py-3 relative overflow-hidden"
+        className="bg-green-900 py-4 md:py-5 relative overflow-hidden"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex items-center justify-center">
-            <div className="w-full max-w-6xl">
-              <div className="relative overflow-hidden">
+            <div className="w-full max-w-7xl">
+              <div className="relative overflow-hidden min-h-[80px] md:min-h-[100px]">
                 {marqueeSlides.map((slide, index) => {
                   const Icon = slide.icon
                   const isActive = index === currentSlide
