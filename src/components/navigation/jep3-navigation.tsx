@@ -41,7 +41,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 // Main menu categories - lebih terorganisir
 const menuCategories = [
   {
-    label: 'Utama',
+    label: 'Beranda',
     items: [
       { name: 'Beranda', href: '#hero', icon: Home, description: 'Halaman utama' },
       { name: 'Struktur Ekosistem', href: '#ecosystem', icon: Layers, description: '7-Layer Ekosistem' },
