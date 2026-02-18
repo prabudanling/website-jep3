@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import {
   Menu as MenuIcon,
@@ -152,8 +153,13 @@ function MobileMenu({
           {/* Mobile Header */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-lg">
-                <Globe2 className="w-6 h-6 text-white" />
+              <div className="relative flex-shrink-0" style={{ width: '40px', height: '40px' }}>
+                <Image 
+                  src="/logo-jep3.png" 
+                  alt="JE-P3 Logo"
+                  fill
+                  className="object-contain rounded-lg"
+                />
               </div>
               <div>
                 <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">JE-P3</h2>
@@ -174,9 +180,9 @@ function MobileMenu({
               <div key={category.label}>
                 <button
                   onClick={() => handleMenuClick(category.label)}
-                 className="w-full flex items-center justify-between p-5 rounded-xl hover:bg-green-50 dark:hover:bg-green-950/30 transition-all group border-2 border-transparent hover:border-green-200 dark:hover:border-green-800"
+                  className="w-full flex items-center justify-between p-5 rounded-xl hover:bg-green-50 dark:hover:bg-green-950/30 transition-all group border-2 border-transparent hover:border-green-200 dark:hover:border-green-800"
                 >
-                                    <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4">
                     <div className={`p-3 rounded-xl ${
                       category.label === 'Beranda' ? 'bg-green-600 dark:bg-green-500 text-white' :
                       category.label === 'Ekosistem' ? 'bg-blue-600 dark:bg-blue-500 text-white' :
@@ -195,7 +201,7 @@ function MobileMenu({
                       {category.label === 'Investor' && <DollarSign className="w-6 h-6" />}
                     </div>
                     <div className="text-left">
-                        <span className="font-extrabold text-gray-900 dark:text-gray-100 text-lg">
+                      <span className="font-extrabold text-gray-900 dark:text-gray-100 text-lg">
                         {category.label}
                       </span>
                       <span className="block text-sm font-semibold text-gray-600 dark:text-gray-400">
@@ -220,7 +226,7 @@ function MobileMenu({
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden"
                     >
-                      <div className="pl-12 pr-4 py-2 space-y-1">
+                      <div className="pl-14 pr-4 py-3 space-y-2">
                         {category.items.map((item, idx) => {
                           const Icon = item.icon
                           return (
@@ -231,14 +237,14 @@ function MobileMenu({
                                 closeAllMenus()
                                 setMobileMenuOpen(false)
                               }}
-                              className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group/item"
+                              className="flex items-center gap-4 p-4 rounded-xl hover:bg-green-50 dark:hover:bg-green-950/30 transition-all group/item border border-transparent hover:border-green-200 dark:hover:border-green-800"
                             >
-                              <Icon className="w-4 h-4 text-gray-400 group-hover/item:text-emerald-600 transition-colors" />
-                              <div>
-                                <p className="text-sm font-medium text-gray-900 dark:text-gray-100 group-hover/item:text-emerald-600 transition-colors">
+                              <Icon className="w-5 h-5 text-green-600 dark:text-green-400 group-hover/item:text-green-700 dark:group-hover/item:text-green-300 transition-colors" />
+                              <div className="flex-1 min-w-0">
+                                <p className="text-base font-bold text-gray-900 dark:text-gray-100 group-hover/item:text-green-700 dark:group-hover/item:text-green-300 transition-colors">
                                   {item.name}
                                 </p>
-                                <p className="text-xs text-gray-500 dark:text-gray-400">
+                                <p className="text-sm text-gray-600 dark:text-gray-400">
                                   {item.description}
                                 </p>
                               </div>
@@ -260,9 +266,9 @@ function MobileMenu({
                 document.getElementById('registration')?.scrollIntoView({ behavior: 'smooth' })
                 setMobileMenuOpen(false)
               }}
-              className="w-full bg-gradient-to-r from-emerald-600 to-amber-600 hover:from-emerald-700 hover:to-amber-700 text-white font-semibold py-3 rounded-lg shadow-lg"
+              className="w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-4 rounded-xl shadow-xl text-lg flex items-center justify-center gap-2"
             >
-              <Crown className="w-4 h-4 mr-2" />
+              <Crown className="w-5 h-5" />
               Join JE-P3
             </Button>
           </div>
@@ -328,21 +334,45 @@ export function JEP3Navigation() {
 
         {/* Main Navigation Bar */}
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo & Brand */}
+          {/* Logo & Brand - Desktop Only */}
           <Link 
             href="/" 
-            className="flex items-center gap-3 group"
+            className="hidden lg:flex items-center gap-3 group"
             onClick={closeAllMenus}
           >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-xl blur-sm opacity-50 group-hover:opacity-75 transition-opacity"></div>
-              <div className="relative p-2.5 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-xl group-hover:scale-105 transition-transform duration-300 shadow-lg">
-                <Globe2 className="w-7 h-7 text-white" />
-              </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
+            <div className="relative flex-shrink-0" style={{ width: '48px', height: '48px' }}>
+              <Image 
+                src="/logo-jep3.png" 
+                alt="JE-P3 Logo"
+                fill
+                className="object-contain group-hover:scale-105 transition-transform duration-300"
+                priority
+              />
             </div>
             <div>
               <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-600 via-emerald-500 to-amber-600 bg-clip-text text-transparent leading-tight">
+                JE-P3
+              </h1>
+            </div>
+          </Link>
+
+          {/* Mobile Logo - Full Header */}
+          <Link
+            href="/"
+            className="lg:hidden flex items-center gap-2 group"
+            onClick={closeAllMenus}
+          >
+            <div className="relative flex-shrink-0" style={{ width: '40px', height: '40px' }}>
+              <Image 
+                src="/logo-jep3.png" 
+                alt="JE-P3 Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="flex-1 min-w-0">
+              <h1 className="text-lg font-bold bg-gradient-to-r from-emerald-600 via-emerald-500 to-amber-600 bg-clip-text text-transparent leading-tight truncate">
                 JE-P3
               </h1>
             </div>
@@ -421,7 +451,7 @@ export function JEP3Navigation() {
                           )
                         })}
                       </div>
-                      {category.label === 'Utama' && (
+                      {category.label === 'Beranda' && (
                         <div className="px-4 py-3 bg-gradient-to-r from-emerald-50 to-amber-50 dark:from-emerald-950/30 dark:to-amber-950/30 border-t border-gray-100 dark:border-gray-800">
                           <Link
                             href="#registration"
@@ -457,9 +487,8 @@ export function JEP3Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all active:scale-95 bg-white dark:bg-gray-900 shadow-md"
+            className="lg:hidden p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all active:scale-95"
             aria-label="Toggle menu"
-            style={{ zIndex: 999999, position: 'relative' }}
           >
             <AnimatePresence mode="wait">
               {mobileMenuOpen ? (
@@ -486,6 +515,8 @@ export function JEP3Navigation() {
             </AnimatePresence>
           </button>
         </div>
+
+
       </div>
 
       {/* Mobile Menu with Portal - renders outside header */}
