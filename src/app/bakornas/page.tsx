@@ -28,7 +28,7 @@ const strategicLeadership = [
 const governingBoard = [
   {
     position: 'Ketua Umum',
-    name: 'Drs. Aeif Rachman Hakim',
+    name: 'Drs. Arif Rachman Hakim',
     responsibility: 'Koordinasi seluruh Bakornas, kebijakan strategis'
   },
   {
