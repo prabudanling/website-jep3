@@ -72,9 +72,7 @@ export function HeroSection() {
 
   const marqueeSlides = [
     {
-      text: "JARINGAN EKOSISTEM 
-        <br />
-        <span className="text-green-400">Pengusaha</span>Pengusaha Persatuan Pembangunan",
+      text: "JARINGAN EKOSISTEM <br /> <span className="text-green-400">Pengusaha</span>Pengusaha Persatuan Pembangunan",
       icon: Globe2,
     },
     {
