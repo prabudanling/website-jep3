@@ -175,36 +175,35 @@ function MobileMenu({
           </div>
 
           {/* Menu Items */}
-          <div className="space-y-3">
+          <div className="space-y-2">
             {menuCategories.map((category) => (
               <div key={category.label}>
                 <button
                   onClick={() => handleMenuClick(category.label)}
-                  className="w-full flex items-center justify-between p-5 rounded-xl hover:bg-green-50 dark:hover:bg-green-950/30 transition-all group border-2 border-transparent hover:border-green-200 dark:hover:border-green-800"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className={`p-3 rounded-xl ${
-                      category.label === 'Beranda' ? 'bg-green-600 dark:bg-green-500 text-white' :
-                      category.label === 'Ekosistem' ? 'bg-blue-600 dark:bg-blue-500 text-white' :
-                      category.label === 'Pimpinan' ? 'bg-purple-600 dark:bg-purple-500 text-white' :
-                      category.label === 'Edukasi' ? 'bg-cyan-600 dark:bg-cyan-500 text-white' :
-                      category.label === 'Member' ? 'bg-amber-600 dark:bg-amber-500 text-white' :
-                      category.label === 'Media' ? 'bg-pink-600 dark:bg-pink-500 text-white' :
-                      'bg-violet-600 dark:bg-violet-500 text-white'
+                  className="w-full flex items-center justify-between p-4 rounded-xl hover:bg-gradient-to-r hover:from-emerald-50 hover:to-amber-50 dark:hover:from-emerald-950/30 dark:hover:to-amber-950/30 transition-all group">
+                 <div className="flex items-center gap-3">
+                    <div className={`p-2 rounded-lg ${
+                      category.label === 'Utama' ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400' :
+                      category.label === 'Ekosistem' ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400' :
+                      category.label === 'Pimpinan' ? 'bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400' :
+                      category.label === 'Edukasi' ? 'bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400' :
+                      category.label === 'Member' ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400' :
+                      category.label === 'Media' ? 'bg-pink-100 dark:bg-pink-900/50 text-pink-600 dark:text-pink-400' :
+                      'bg-violet-100 dark:bg-violet-900/50 text-violet-600 dark:text-violet-400'
                     }`}>
-                      {category.label === 'Beranda' && <Home className="w-6 h-6" />}
-                      {category.label === 'Ekosistem' && <Layers className="w-6 h-6" />}
-                      {category.label === 'Pimpinan' && <Users className="w-6 h-6" />}
-                      {category.label === 'Edukasi' && <GraduationCap className="w-6 h-6" />}
-                      {category.label === 'Member' && <Crown className="w-6 h-6" />}
-                      {category.label === 'Media' && <Tv className="w-6 h-6" />}
-                      {category.label === 'Investor' && <DollarSign className="w-6 h-6" />}
+                      {category.label === 'Beranda' && <Home className="w-5 h-5" />}
+                      {category.label === 'Ekosistem' && <Layers className="w-5 h-5" />}
+                      {category.label === 'Pimpinan' && <Users className="w-5 h-5" />}
+                      {category.label === 'Edukasi' && <GraduationCap className="w-5 h-5" />}
+                      {category.label === 'Member' && <Crown className="w-5 h-5" />}
+                      {category.label === 'Media' && <Tv className="w-5 h-5" />}
+                      {category.label === 'Investor' && <DollarSign className="w-5 h-5" />}
                     </div>
                     <div className="text-left">
-                      <span className="font-extrabold text-gray-900 dark:text-gray-100 text-lg">
+                      <span className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
                         {category.label}
                       </span>
-                      <span className="block text-sm font-semibold text-gray-600 dark:text-gray-400">
+                      <span className="block text-xs text-gray-500 dark:text-gray-400">
                         {category.items.length} menu
                       </span>
                     </div>
