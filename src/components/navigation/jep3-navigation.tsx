@@ -63,7 +63,7 @@ const menuCategories = [
   {
     label: 'Pimpinan',
     items: [
-      { name: 'Bakornas', href: '#bakornas', icon: Building2, description: 'Badan Koordinasi Nasional' },
+      { name: 'Bakornas', href: '/bakornas', icon: Building2, description: 'Struktur Organisasi Bakornas' },
       { name: 'Bakorwil', href: '#bakorwil', icon: Map, description: 'Badan Koordinasi Wilayah' },
       { name: 'Bakorcab', href: '#bakorcab', icon: MapPin, description: 'Badan Koordinasi Cabang' },
       { name: 'Bakorancam', href: '#bakorancam', icon: MapPin, description: 'Badan Koordinasi Kecamatan' },
