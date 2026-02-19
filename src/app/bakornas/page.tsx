@@ -224,7 +224,7 @@ export default function BakornasPage() {
           <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl shadow-lg border border-purple-200 p-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { level: 'Bakornas', scope: '83,763 Desa (Indonesia)', lead: 'Drs. Aeif Rachman Hakim' },
+                { level: 'Bakornas', scope: '83,763 Desa (Indonesia)', lead: 'Drs. Arif Rachman Hakim' },
                 { level: 'Bakorwil', scope: 'Regional (Provinsi)', lead: 'Nominasi per wilayah' },
                 { level: 'Bakorcab', scope: 'Kota/Kabupaten', lead: 'Nominasi per cabang' },
                 { level: 'Bakorancam', scope: 'Kecamatan', lead: 'Nominasi per kecamatan' },
