@@ -124,104 +124,98 @@ const territory = [
   { level: 'International Chapters', scope: 'Perwakilan di 195 negara', lead: 'Country Director' }
 ]
 
-// Variants animasi umum
 const containerVariant = {
   hidden: { opacity: 0, y: 20 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' }
+    transition: { duration: 0.5, ease: 'easeOut' }
   }
 }
 
 const listVariant = {
   hidden: {},
   show: {
-    transition: {
-      staggerChildren: 0.08
-    }
+    transition: { staggerChildren: 0.08 }
   }
 }
 
 const itemVariant = {
-  hidden: { opacity: 0, y: 20, scale: 0.98 },
+  hidden: { opacity: 0, y: 16 },
   show: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.4, ease: 'easeOut' }
+    transition: { duration: 0.35, ease: 'easeOut' }
   }
 }
 
 export default function BakornasPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 text-slate-50">
-      {/* HERO */}
-      <section className="relative overflow-hidden">
+    <main className="min-h-screen bg-gradient-to-br from-emerald-50 via-amber-50/40 to-white">
+      {/* HERO TERANG */}
+      <section className="bg-gradient-to-r from-emerald-600 to-amber-500 text-white">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="container mx-auto px-4 pt-14 pb-16 md:pt-20 md:pb-24"
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="container mx-auto px-4 py-12 md:py-16"
         >
           <div className="grid md:grid-cols-[1.3fr,1fr] gap-10 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-400/40 bg-emerald-500/10 mb-4">
-                <Building2 className="w-4 h-4 text-emerald-300" />
-                <span className="text-xs font-semibold tracking-wide text-emerald-200">
-                  BAKORNAS JE-P3 • ORGANIGRAM
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-emerald-200/60 mb-4">
+                <Building2 className="w-4 h-4" />
+                <span className="text-xs font-semibold tracking-wide">
+                  BAKORNAS JE-P3 • SUSUNAN PENGURUS
                 </span>
               </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-                Struktur Organisasi Bakornas <span className="text-emerald-300">JE-P3</span>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-3">
+                Struktur Organisasi Bakornas JE-P3
               </h1>
-              <p className="text-slate-300/90 text-sm md:text-base max-w-2xl mb-6">
-                Desain organisasi bertaraf internasional yang menghubungkan kepemimpinan
-                strategis, pimpinan harian, dan tujuh bidang utama ekosistem:
-                pangan, logistik, jasa, digitalisasi, holding, trading, dan koperasi/UKM.
+              <p className="text-emerald-50 text-sm md:text-base max-w-2xl mb-5">
+                Desain organisasi yang menghubungkan kepemimpinan strategis, pimpinan harian,
+                dan tujuh bidang utama ekosistem untuk menggerakkan pengusaha dari desa
+                hingga pasar global.
               </p>
-              <div className="flex flex-wrap items-center gap-3 text-xs md:text-sm text-slate-300">
-                <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-900/80 border border-emerald-500/40">
-                  <Globe className="w-4 h-4 text-emerald-300" />
+              <div className="flex flex-wrap gap-3 text-xs md:text-sm">
+                <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 border border-white/40">
+                  <Globe className="w-4 h-4" />
                   195 Negara Target
                 </div>
-                <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-900/80 border border-emerald-500/40">
-                  <Users className="w-4 h-4 text-emerald-300" />
+                <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 border border-white/40">
+                  <Users className="w-4 h-4" />
                   83.763 Desa Terhubung
                 </div>
               </div>
             </div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, rotate: 4 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 0.7, ease: 'easeOut' }}
+              initial={{ opacity: 0, scale: 0.9, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
               className="relative"
             >
-              <div className="relative rounded-3xl border border-emerald-400/40 bg-gradient-to-br from-emerald-500/20 via-slate-900 to-emerald-900/80 p-6 shadow-2xl">
-                <p className="text-xs uppercase tracking-[0.2em] text-emerald-200 mb-4">
-                  CORE LEADERSHIP
+              <div className="relative rounded-3xl bg-white/95 text-emerald-900 p-6 shadow-2xl border border-emerald-100">
+                <p className="text-[11px] font-semibold text-emerald-500 mb-2 tracking-[0.18em] uppercase">
+                  INTI KEPEMIMPINAN
                 </p>
-                <p className="text-sm text-emerald-50/90 mb-4">
-                  “Bakornas JE-P3 bertugas mengorkestrasi jaringan ekosistem pengusaha
-                  dari akar rumput hingga panggung global, dengan tata kelola modern
-                  dan berbasis data.”
+                <p className="text-sm mb-3">
+                  “Bakornas JE-P3 menjadi pusat koordinasi nasional Jaringan Ekosistem
+                  Pengusaha Persatuan Pembangunan, dengan tata kelola modern dan kolaboratif.”
                 </p>
-                <div className="flex items-center justify-between text-xs text-emerald-200">
-                  <span>Susunan pengurus periode awal</span>
+                <div className="flex items-center justify-between text-xs text-emerald-700">
+                  <span>Periode awal pembentukan</span>
                   <span className="inline-flex items-center gap-1">
                     Lihat struktur lengkap
                     <ChevronRight className="w-3 h-3" />
                   </span>
                 </div>
-                <div className="absolute inset-0 rounded-3xl border border-emerald-500/40 pointer-events-none" />
               </div>
             </motion.div>
           </div>
         </motion.div>
       </section>
 
-      <div className="container mx-auto px-4 pb-16 space-y-14 md:space-y-20">
+      <div className="container mx-auto px-4 py-12 md:py-16 space-y-14 md:space-y-20">
         {/* DEWAN STRATEGIS */}
         <motion.section
           variants={containerVariant}
@@ -231,11 +225,13 @@ export default function BakornasPage() {
           className="space-y-6"
         >
           <div className="flex items-center gap-3">
-            <Award className="w-7 h-7 text-amber-300" />
+            <Award className="w-7 h-7 text-amber-500" />
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold">Kepemimpinan Strategis</h2>
-              <p className="text-sm text-slate-300">
-                Dewan pelindung, pertimbangan, dan pakar yang memberikan arah jangka panjang.
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+                Kepemimpinan Strategis
+              </h2>
+              <p className="text-sm text-slate-600">
+                Dewan pelindung, pertimbangan, dan pakar yang memberi arah jangka panjang.
               </p>
             </div>
           </div>
@@ -249,18 +245,20 @@ export default function BakornasPage() {
                 key={idx}
                 variants={itemVariant}
                 whileHover={{ y: -4, scale: 1.02 }}
-                className="relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-slate-900/70 p-5 shadow-lg"
+                className="relative overflow-hidden rounded-2xl border border-emerald-100 bg-white shadow-md"
               >
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-400 via-amber-300 to-emerald-400" />
-                <p className="text-[11px] font-semibold text-emerald-200 mb-2 tracking-wide uppercase">
-                  {leader.title}
-                </p>
-                <p className="text-sm font-bold text-slate-50 mb-2 leading-snug">
-                  {leader.name}
-                </p>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  {leader.role}
-                </p>
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-400 via-amber-400 to-emerald-400" />
+                <div className="p-5">
+                  <p className="text-[11px] font-semibold text-emerald-500 mb-2 tracking-wide uppercase">
+                    {leader.title}
+                  </p>
+                  <p className="text-sm font-bold text-slate-900 mb-2 leading-snug">
+                    {leader.name}
+                  </p>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {leader.role}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -275,11 +273,13 @@ export default function BakornasPage() {
           className="space-y-6"
         >
           <div className="flex items-center gap-3">
-            <Users className="w-7 h-7 text-emerald-300" />
+            <Users className="w-7 h-7 text-emerald-500" />
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold">Pimpinan Harian Bakornas</h2>
-              <p className="text-sm text-slate-300">
-                Ketua Umum beserta jajaran Sekretariat dan Keuangan.
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+                Pimpinan Harian Bakornas
+              </h2>
+              <p className="text-sm text-slate-600">
+                Ketua Umum beserta Sekretariat dan Keuangan.
               </p>
             </div>
           </div>
@@ -292,16 +292,18 @@ export default function BakornasPage() {
               <motion.div
                 key={idx}
                 variants={itemVariant}
-                whileHover={{ y: -4, scale: 1.02 }}
-                className="rounded-2xl border border-slate-700 bg-slate-900/80 p-5 shadow-md"
+                whileHover={{ y: -3, scale: 1.02 }}
+                className="rounded-2xl border border-emerald-100 bg-gradient-to-br from-emerald-50 via-white to-amber-50 shadow-sm"
               >
-                <span className="inline-flex px-3 py-1 mb-3 rounded-full bg-emerald-500/10 text-[11px] font-semibold text-emerald-200 uppercase tracking-wide">
-                  {m.position}
-                </span>
-                <p className="text-sm font-bold mb-2">{m.name}</p>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  {m.desc}
-                </p>
+                <div className="p-5">
+                  <span className="inline-flex px-3 py-1 mb-3 rounded-full bg-white/80 border border-emerald-100 text-[11px] font-semibold text-emerald-700 uppercase tracking-wide">
+                    {m.position}
+                  </span>
+                  <p className="text-sm font-bold mb-2 text-slate-900">{m.name}</p>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {m.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -316,10 +318,12 @@ export default function BakornasPage() {
           className="space-y-6"
         >
           <div className="flex items-center gap-3">
-            <Layers className="w-7 h-7 text-sky-300" />
+            <Layers className="w-7 h-7 text-sky-500" />
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold">Wakil Ketua Umum & Bidang</h2>
-              <p className="text-sm text-slate-300">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+                Wakil Ketua Umum & Bidang
+              </h2>
+              <p className="text-sm text-slate-600">
                 Setiap Wakil Ketua Umum sekaligus memimpin satu bidang strategis ekosistem.
               </p>
             </div>
@@ -334,40 +338,40 @@ export default function BakornasPage() {
                 key={idx}
                 variants={itemVariant}
                 whileHover={{ y: -4, scale: 1.03 }}
-                className="relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-900/80 p-5 shadow-lg"
+                className="relative overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-md"
               >
                 <div
                   className={`
-                    absolute inset-0 opacity-20 pointer-events-none
+                    absolute inset-0 opacity-25 pointer-events-none
                     bg-gradient-to-br
                     ${
-                      b.color === 'emerald' ? 'from-emerald-500/40 via-slate-900 to-emerald-900' :
-                      b.color === 'sky' ? 'from-sky-500/40 via-slate-900 to-sky-900' :
-                      b.color === 'violet' ? 'from-violet-500/40 via-slate-900 to-violet-900' :
-                      b.color === 'cyan' ? 'from-cyan-500/40 via-slate-900 to-cyan-900' :
-                      b.color === 'amber' ? 'from-amber-500/40 via-slate-900 to-amber-900' :
-                      b.color === 'orange' ? 'from-orange-500/40 via-slate-900 to-orange-900' :
-                      'from-rose-500/40 via-slate-900 to-rose-900'
+                      b.color === 'emerald' ? 'from-emerald-100 via-white to-emerald-50' :
+                      b.color === 'sky' ? 'from-sky-100 via-white to-sky-50' :
+                      b.color === 'violet' ? 'from-violet-100 via-white to-violet-50' :
+                      b.color === 'cyan' ? 'from-cyan-100 via-white to-cyan-50' :
+                      b.color === 'amber' ? 'from-amber-100 via-white to-amber-50' :
+                      b.color === 'orange' ? 'from-orange-100 via-white to-orange-50' :
+                      'from-rose-100 via-white to-rose-50'
                     }
                   `}
                 />
-                <div className="relative">
+                <div className="relative p-5">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-900/80 border border-slate-600 text-[10px] font-semibold uppercase tracking-wide text-slate-200">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/70 border border-slate-200 text-[10px] font-semibold uppercase tracking-wide text-slate-700">
                       WAKETUM {b.code}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-300 mb-1">{b.position}</p>
-                  <p className="text-sm font-bold text-slate-50 mb-3">{b.name}</p>
-                  <div className="mb-3 pb-3 border-b border-slate-700/80">
-                    <p className="text-xs font-semibold text-slate-200">
+                  <p className="text-xs text-slate-500 mb-1">{b.position}</p>
+                  <p className="text-sm font-bold text-slate-900 mb-3">{b.name}</p>
+                  <div className="mb-3 pb-3 border-b border-slate-200">
+                    <p className="text-xs font-semibold text-slate-800">
                       {b.field}
                     </p>
                   </div>
                   {b.support.length > 0 && (
-                    <div className="mb-3">
-                      <p className="text-[11px] text-slate-300 mb-1">Wakil / Anggota Inti:</p>
-                      <ul className="text-[11px] text-slate-200 space-y-0.5">
+                    <div className="mb-1">
+                      <p className="text-[11px] text-slate-500 mb-1">Wakil / Anggota Inti:</p>
+                      <ul className="text-[11px] text-slate-700 space-y-0.5">
                         {b.support.map((s) => (
                           <li key={s}>• {s}</li>
                         ))}
@@ -386,13 +390,15 @@ export default function BakornasPage() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="space-y-6 mb-4"
+          className="space-y-6"
         >
           <div className="flex items-center gap-3">
-            <Globe className="w-7 h-7 text-purple-300" />
+            <Globe className="w-7 h-7 text-purple-500" />
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold">Struktur Teritorial</h2>
-              <p className="text-sm text-slate-300">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+                Struktur Teritorial
+              </h2>
+              <p className="text-sm text-slate-600">
                 Jaringan koordinasi dari tingkat nasional hingga desa dan perwakilan luar negeri.
               </p>
             </div>
@@ -407,15 +413,17 @@ export default function BakornasPage() {
                 key={idx}
                 variants={itemVariant}
                 whileHover={{ y: -3, scale: 1.02 }}
-                className="rounded-2xl border border-purple-500/30 bg-slate-900/80 p-4 shadow-md"
+                className="rounded-2xl border border-purple-100 bg-purple-50/40 shadow-sm"
               >
-                <p className="text-xs font-semibold text-purple-200 mb-1 uppercase tracking-wide">
-                  {t.level}
-                </p>
-                <p className="text-sm text-slate-50 mb-1">{t.scope}</p>
-                <p className="text-[11px] text-slate-300">
-                  <span className="font-semibold">Koordinator:</span> {t.lead}
-                </p>
+                <div className="p-4">
+                  <p className="text-xs font-semibold text-purple-700 mb-1 uppercase tracking-wide">
+                    {t.level}
+                  </p>
+                  <p className="text-sm text-slate-900 mb-1">{t.scope}</p>
+                  <p className="text-[11px] text-slate-600">
+                    <span className="font-semibold">Koordinator:</span> {t.lead}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
