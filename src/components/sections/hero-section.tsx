@@ -72,7 +72,9 @@ export function HeroSection() {
 
   const marqueeSlides = [
     {
-      text: "JARINGAN EKOSISTEM Pengusaha Persatuan Pembangunan",
+      text: "JARINGAN EKOSISTEM 
+        <br />
+        <span className="text-green-400">Pengusaha</span>Pengusaha Persatuan Pembangunan",
       icon: Globe2,
     },
     {
@@ -84,7 +86,7 @@ export function HeroSection() {
       icon: TrendingUp,
     },
     {
-      text: "LONCATAN TEKNOLOGI TRANSFORMASI BISNIS JE-P3 MENUJU BISNIS FUTURISTIK",
+      text: "LOMPATAN TEKNOLOGI TRANSFORMASI BISNIS JE-P3 MENUJU BISNIS FUTURISTIK",
       icon: Network,
     }
   ]
