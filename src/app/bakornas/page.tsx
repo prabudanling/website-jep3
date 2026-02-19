@@ -45,44 +45,44 @@ const governingBoard = [
 
 const directorates = [
   {
-    name: 'Direktorat Pangan & Agroekosistem',
+    name: 'Ketua Bidang Pangan & Agroekosistem',
     director: 'M. Ilham, SE',
     focus: 'Supply chain pangan, cold chain, standar kualitas',
     color: 'emerald'
   },
   {
-    name: 'Direktorat Logistik & Infrastruktur',
+    name: 'Ketua Bidang Logistik & Infrastruktur',
     director: 'Heri',
     deputy: 'Agung',
     focus: 'Transportasi, pergudangan, cold chain tracking',
     color: 'blue'
   },
   {
-    name: 'Direktorat Jasa & Layanan Bisnis',
+    name: 'Ketua Bidang Jasa & Layanan Bisnis',
     director: '(Belum diisi)',
     focus: 'Konsultansi, pendampingan UMKM, jasa keuangan',
     color: 'purple'
   },
   {
-    name: 'Direktorat Digitalisasi & Inovasi',
+    name: 'Ketua Bidang Digitalisasi, Inovasi, Holding',
     director: 'M. Lutfi Azmi',
-    focus: 'Platform digital, AI/data science, sistem IT',
+    focus: 'Struktur Holding, Platform digital, AI/data science, sistem IT',
     color: 'cyan'
   },
   {
-    name: 'Direktorat Holding, Investasi & Kemitraan',
+    name: 'Investasi & Kemitraan',
     director: 'Dr. Cecep Sumarno',
-    focus: 'Struktur holding, investment deal, PPP projects',
+    focus: 'investment deal, PPP projects',
     color: 'amber'
   },
   {
-    name: 'Direktorat Trading & Market Development',
+    name: 'Ketua Bidang Trading & Market Development',
     director: 'M. Ongky Putra',
     focus: 'Perdagangan domestik & internasional, B2B/B2C',
     color: 'orange'
   },
   {
-    name: 'Direktorat Koperasi, UKM & Inklusi',
+    name: 'Ketua Bidang Koperasi, UKM & Inklusi',
     director: 'Dr. Cecep Sumarno',
     focus: 'Pengembangan koperasi modern, capacity building',
     color: 'pink'
@@ -179,7 +179,7 @@ export default function BakornasPage() {
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-8">
             <Layers className="w-8 h-8 text-blue-600" />
-            <h2 className="text-3xl font-bold text-slate-900">Direktorat Bidang</h2>
+            <h2 className="text-3xl font-bold text-slate-900">Ketua Bidang Bidang</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {directorates.map((dir, idx) => (
@@ -188,7 +188,7 @@ export default function BakornasPage() {
                 className={`bg-white rounded-2xl shadow-md border-2 border-${dir.color}-200 p-6 hover:shadow-xl transition-all hover:scale-105`}
               >
                 <div className={`inline-block px-3 py-1 bg-${dir.color}-100 text-${dir.color}-700 text-xs font-semibold rounded-lg mb-3`}>
-                  Direktorat {idx + 1}
+                  Ketua Bidang {idx + 1}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 mb-3">
                   {dir.name}
