@@ -23,7 +23,7 @@ export function HeroSection() {
   const [showCursor, setShowCursor] = useState(true)
   const [typingStarted, setTypingStarted] = useState(false)
 
-  const fullText = 'Super-Ekosistem Terobosan 2026–2030'
+  const fullText = 'Super-Ekosistem Bisnis 2026–2030'
 
   // Typewriter effect
   useEffect(() => {
