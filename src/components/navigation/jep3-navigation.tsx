@@ -77,7 +77,7 @@ const menuCategories = [
       { name: 'Proyeksi Keuangan', href: '#financial', icon: DollarSign, description: 'ROI projections' },
       { name: 'Dokumen', href: '#documents', icon: FileText, description: 'Pitch deck & more' },
     ]
-  }
+  },
   {
     label: 'Edukasi',
     items: [
