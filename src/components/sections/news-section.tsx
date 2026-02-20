@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -8,14 +7,14 @@ import { AnimatedIcon } from '@/components/ui/animated-icon'
 import { Calendar, ArrowRight, TrendingUp, Award, Globe } from 'lucide-react'
 
 export function NewsSection() {
-  
   const news = [
     {
       category: 'Milestone',
       icon: Award,
       iconColor: 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400',
       title: 'JE-P3 Resmi Diluncurkan: Transformasi JP3 Menjadi Super-Ekosistem',
-      excerpt: 'Setelah satu dekade perjalanan dari bisnisPPP ke JP3, kini JE-P3 hadir sebagai ekosistem multinasional yang menghubungkan 83.763 desa dengan 195 negara.',
+      excerpt:
+        'Setelah satu dekade perjalanan dari bisnisPPP ke JP3, kini JE-P3 hadir sebagai ekosistem multinasional yang menghubungkan 83.763 desa dengan 195 negara.',
       date: '9 Februari 2026',
       readTime: '5 min baca',
       featured: true,
@@ -25,7 +24,8 @@ export function NewsSection() {
       icon: Globe,
       iconColor: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400',
       title: '5.000 Desa Pilot Akan Terhubung ke Ekosistem JE-P3 Tahun Ini',
-      excerpt: 'Program pilot akan dimulai di Jawa, Sumatra, dan Sulawesi dengan fokus pada komoditas kopi, coklat, dan rempah premium.',
+      excerpt:
+        'Program pilot akan dimulai di Jawa, Sumatra, dan Sulawesi dengan fokus pada komoditas kopi, coklat, dan rempah premium.',
       date: '8 Februari 2026',
       readTime: '4 min baca',
       featured: false,
@@ -35,129 +35,160 @@ export function NewsSection() {
       icon: TrendingUp,
       iconColor: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400',
       title: 'JE-P3 Jalin Kerjasama Strategis dengan Bank Himbara',
-      excerpt: 'Kerjasama ini akan memfasilitasi akses modal untuk 17 juta petani yang belum terbankir melalui JP3 Pay dan microloans.',
+      excerpt:
+        'Kerjasama ini akan memfasilitasi akses modal untuk 17 juta petani yang belum terbankir melalui JP3 Pay dan microloans.',
       date: '7 Februari 2026',
       readTime: '3 min baca',
       featured: false,
     },
   ]
 
+  const featuredNews = news.filter(n => n.featured)
+  const otherNews = news.filter(n => !n.featured)
+
   return (
-    <section className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-dots-animated"></div>
+    <section
+      id="news"
+      className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden"
+    >
+      {/* Background dots ke belakang */}
+      <div className="absolute inset-0 opacity-5 -z-10">
+        <div className="absolute inset-0 bg-dots-animated" />
       </div>
 
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-12">
-          {/* Section Header */}
-          <div className={`text-center space-y-4 `}>
+          {/* Header */}
+          <div className="text-center space-y-4 animate-fade-in-up">
             <Badge className="px-4 py-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800 animate-pop-in">
               Berita & Update
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gradient-animate bg-gradient-to-r from-emerald-600 via-amber-600 to-emerald-600 bg-clip-text text-transparent animate-text-reveal">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient-animate bg-gradient-to-r from-emerald-600 via-amber-600 to-emerald-600 bg-clip-text text-transparent animate-text-reveal">
               Kabar Terbaru
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              Ikuti perkembangan terbaru JE-P3 dalam membangun super-ekosistem pengusaha desa Indonesia
+            <p
+              className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed animate-fade-in-up"
+              style={{ animationDelay: '0.2s' }}
+            >
+              Ikuti perkembangan terbaru JE-P3 dalam membangun super-ekosistem pengusaha desa
+              Indonesia.
             </p>
           </div>
 
-          {/* Featured News */}
-          <div className={`transition-all duration-1000 `}>
-            {news.filter(n => n.featured).map((item, index) => {
-              const Icon = item.icon
-              return (
-                <Card key={index} className="border-2 border-amber-200 dark:border-amber-800 bg-gradient-to-br from-amber-50 to-emerald-50 dark:from-amber-950/30 dark:to-emerald-950/30 hover:shadow-2xl transition-all card-3d-tilt card-hover-lift card-glow-hover cursor-pointer scroll-fade-in animate-shimmer" style={{ transitionDelay: `${index * 150}ms` }}>
-                  <CardContent className="p-8 md:p-12">
-                    <div className="grid md:grid-cols-2 gap-8">
-                      <div className="space-y-4">
-                        <div className="flex items-center gap-3">
-                          <Badge className="bg-amber-500 text-white animate-pulse-glow" style={{ animationDuration: '2s' }}>
-                            {item.category}
-                          </Badge>
-                          <AnimatedIcon animation="bounce-subtle" duration={2}>
-                            <div className={`p-2 rounded-lg ${item.iconColor} icon-hover-glow icon-hover-lift`}>
-                              <Icon className="w-4 h-4" />
+          {/* Featured news */}
+          {featuredNews.length > 0 && (
+            <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+              {featuredNews.map((item, index) => {
+                const Icon = item.icon
+                return (
+                  <Card
+                    key={index}
+                    className="border-2 border-amber-200 dark:border-amber-800 bg-gradient-to-br from-amber-50 to-emerald-50 dark:from-amber-950/30 dark:to-emerald-950/30 hover:shadow-2xl transition-all card-3d-tilt card-hover-lift card-glow-hover cursor-pointer animate-shimmer"
+                    style={{ transitionDelay: `${index * 150}ms` }}
+                  >
+                    <CardContent className="p-8 md:p-12">
+                      <div className="grid md:grid-cols-2 gap-8">
+                        <div className="space-y-4">
+                          <div className="flex items-center gap-3">
+                            <Badge className="bg-amber-500 text-white animate-pulse-glow">
+                              {item.category}
+                            </Badge>
+                            <AnimatedIcon animation="bounce-subtle" duration={2}>
+                              <div
+                                className={`p-2 rounded-lg ${item.iconColor} icon-hover-glow icon-hover-lift`}
+                              >
+                                <Icon className="w-4 h-4" />
+                              </div>
+                            </AnimatedIcon>
+                          </div>
+                          <h3 className="text-2xl md:text-3xl font-bold text-gradient-animate bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent animate-fade-in-up">
+                            {item.title}
+                          </h3>
+                          <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+                            <div className="flex items-center gap-2">
+                              <Calendar className="w-4 h-4" />
+                              <span>{item.date}</span>
+                              <span>•</span>
+                              <span>{item.readTime}</span>
                             </div>
-                          </AnimatedIcon>
-                        </div>
-                        <h3 className="text-2xl md:text-3xl font-bold text-gradient-animate bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent animate-fade-in-up">
-                          {item.title}
-                        </h3>
-                        <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-                          <div className="flex items-center gap-2">
-                            <Calendar className="w-4 h-4" />
-                            <span>{item.date}</span>
-                            <span>•</span>
-                            <span>{item.readTime}</span>
                           </div>
                         </div>
+                        <div className="space-y-6 flex flex-col justify-center">
+                          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            {item.excerpt}
+                          </p>
+                          <Button className="w-fit bg-amber-500 hover:bg-amber-600 text-white btn-bounce btn-glow magnetic-btn ripple-btn">
+                            Baca Selengkapnya
+                            <ArrowRight className="ml-2 w-4 h-4" />
+                          </Button>
+                        </div>
                       </div>
-                      <div className="space-y-6 flex flex-col justify-center">
-                        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                          {item.excerpt}
-                        </p>
-                        <Button className="w-fit bg-amber-500 hover:bg-amber-600 text-white btn-bounce btn-glow magnetic-btn ripple-btn">
-                          Baca Selengkapnya
-                          <ArrowRight className="ml-2 w-4 h-4" />
+                    </CardContent>
+                  </Card>
+                )
+              })}
+            </div>
+          )}
+
+          {/* Berita lain */}
+          {otherNews.length > 0 && (
+            <div className="grid md:grid-cols-2 gap-6 stagger-children animate-fade-in-up">
+              {otherNews.map((item, index) => {
+                const Icon = item.icon
+                return (
+                  <Card
+                    key={index}
+                    className="border-2 hover:shadow-xl transition-all hover:-translate-y-1 card-3d-tilt card-hover-lift card-glow-hover cursor-pointer scroll-slide-left animate-pop-in"
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                  >
+                    <CardContent className="p-6 space-y-4">
+                      <div className="flex items-center gap-3">
+                        <Badge
+                          variant="outline"
+                          className="border-emerald-200 text-emerald-700 dark:border-emerald-800 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 hover:border-emerald-400 dark:hover:border-emerald-600 transition-all cursor-default animate-pop-in"
+                          style={{ animationDelay: `${index * 100}ms` }}
+                        >
+                          {item.category}
+                        </Badge>
+                        <AnimatedIcon animation="pulse-glow" delay={index * 150} duration={2}>
+                          <div
+                            className={`p-2 rounded-lg ${item.iconColor} icon-hover-glow icon-hover-lift`}
+                          >
+                            <Icon className="w-4 h-4" />
+                          </div>
+                        </AnimatedIcon>
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 leading-tight hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        {item.excerpt}
+                      </p>
+                      <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-800">
+                        <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400">
+                          <Calendar className="w-3 h-3" />
+                          <span>{item.date}</span>
+                          <span>•</span>
+                          <span>{item.readTime}</span>
+                        </div>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 btn-bounce magnetic-btn"
+                        >
+                          <ArrowRight className="w-4 h-4" />
                         </Button>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              )
-            })}
-          </div>
+                    </CardContent>
+                  </Card>
+                )
+              })}
+            </div>
+          )}
 
-          {/* Other News */}
-          <div className={`grid md:grid-cols-2 gap-6 stagger-children `}>
-            {news.filter(n => !n.featured).map((item, index) => {
-              const Icon = item.icon
-              return (
-                <Card key={index} className="border-2 hover:shadow-xl transition-all hover:-translate-y-1 card-3d-tilt card-hover-lift card-glow-hover cursor-pointer scroll-slide-left animate-pop-in" style={{ transitionDelay: `${index * 100}ms` }}>
-                  <CardContent className="p-6 space-y-4">
-                    <div className="flex items-center gap-3">
-                      <Badge variant="outline" className="border-emerald-200 text-emerald-700 dark:border-emerald-800 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 hover:border-emerald-400 dark:hover:border-emerald-600 transition-all cursor-default animate-pop-in" style={{ animationDelay: `${index * 100}ms` }}>
-                        {item.category}
-                      </Badge>
-                      <AnimatedIcon
-                        animation="pulse-glow"
-                        delay={index * 150}
-                        duration={2}
-                      >
-                        <div className={`p-2 rounded-lg ${item.iconColor} icon-hover-glow icon-hover-lift`}>
-                          <Icon className="w-4 h-4" />
-                        </div>
-                      </AnimatedIcon>
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 leading-tight hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                      {item.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-800">
-                      <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400">
-                        <Calendar className="w-3 h-3" />
-                        <span>{item.date}</span>
-                        <span>•</span>
-                        <span>{item.readTime}</span>
-                      </div>
-                      <Button variant="ghost" size="sm" className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 btn-bounce magnetic-btn">
-                        <ArrowRight className="w-4 h-4" />
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              )
-            })}
-          </div>
-
-          {/* Newsletter Signup */}
-          <div className={`transition-all duration-1000 `}>
-            <Card className="border-2 border-emerald-200 dark:border-emerald-800 bg-gradient-to-br from-emerald-50 to-amber-50 dark:from-emerald-950/30 dark:to-emerald-950/30 card-3d-tilt card-hover-lift card-glow-hover cursor-pointer animate-shimmer section-fade">
+          {/* Newsletter – hilangkan section-fade supaya selalu terlihat */}
+          <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <Card className="border-2 border-emerald-200 dark:border-emerald-800 bg-gradient-to-br from-emerald-50 to-amber-50 dark:from-emerald-950/30 dark:to-emerald-950/30 card-3d-tilt card-hover-lift card-glow-hover cursor-pointer animate-shimmer">
               <CardContent className="p-8 md:p-12">
                 <div className="max-w-2xl mx-auto text-center space-y-6">
                   <div className="flex justify-center">
@@ -172,7 +203,8 @@ export function NewsSection() {
                       Berlangganan Newsletter JE-P3
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Dapatkan update terbaru tentang perkembangan ekosistem, tips bisnis, dan peluang ekspor langsung ke inbox Anda
+                      Dapatkan update ekosistem, insight bisnis, dan peluang ekspor langsung ke inbox
+                      Anda.
                     </p>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
@@ -186,7 +218,7 @@ export function NewsSection() {
                     </Button>
                   </div>
                   <p className="text-xs text-gray-500 dark:text-gray-500">
-                    Kami menghargai privasi Anda. Berhenti berlangganan kapan saja.
+                    Kami menghargai privasi Anda. Bisa berhenti berlangganan kapan saja.
                   </p>
                 </div>
               </CardContent>
