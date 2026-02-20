@@ -66,13 +66,13 @@ const waketumDirectorates = [
   },
 
   {
-    name: 'Bidang Pangan',
-    director: 'M. Rojalih, SE',
-    focus: 'Pengembangan ekosistem pangan dan agro dari hulu ke hilir',
-    color: 'emerald',
+    name: 'Bidang Logistik',
+    director: 'Fajar Hadi Prabowo',
+    focus: 'Transportasi, pergudangan, dan cold chain tracking',
+    color: 'blue',
     waketumLabel: 'Wakil Ketua Umum II',
-    deputies: []
-  },
+    deputies: ['Agung']
+	},
   {
     name: 'Bidang Jasa',
     director: 'M. Ilham',
@@ -89,14 +89,14 @@ const waketumDirectorates = [
     waketumLabel: 'Wakil Ketua Umum IV',
     deputies: []
   },
-  {
-    name: 'Bidang Logistik',
-    director: 'Fajar Hadi Prabowo',
-    focus: 'Transportasi, pergudangan, dan cold chain tracking',
-    color: 'blue',
-    waketumLabel: 'Wakil Ketua Umum II',
-    deputies: ['Agung']
-	},
+	  {
+    name: 'Bidang Pangan',
+    director: 'M. Rojalih, SE',
+    focus: 'Pengembangan ekosistem pangan dan agro dari hulu ke hilir',
+    color: 'emerald',
+    waketumLabel: 'Wakil Ketua Umum V',
+    deputies: []
+  },
   {
     name: 'Bidang Trading',
     director: 'M. Ongky Putra',
