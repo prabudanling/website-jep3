@@ -1,4 +1,4 @@
-'use client'
+a'use client'
 
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
@@ -184,9 +184,10 @@ function MobileMenu({
                   className="w-full flex items-center justify-between p-4 rounded-xl hover:bg-gradient-to-r hover:from-emerald-50 hover:to-amber-50 dark:hover:from-emerald-950/30 dark:hover:to-amber-950/30 transition-all group">
                  <div className="flex items-center gap-3">
                     <div className={`p-2 rounded-lg ${
-                      category.label === 'Utama' ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400' :
+                      category.label === 'Beranda' ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400' :
                       category.label === 'Ekosistem' ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400' :
                       category.label === 'Pimpinan' ? 'bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400' :
+                      category.label === 'Investor' ? 'bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400' :
                       category.label === 'Edukasi' ? 'bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400' :
                       category.label === 'Member' ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400' :
                       category.label === 'Media' ? 'bg-pink-100 dark:bg-pink-900/50 text-pink-600 dark:text-pink-400' :
@@ -195,10 +196,11 @@ function MobileMenu({
                       {category.label === 'Beranda' && <Home className="w-5 h-5" />}
                       {category.label === 'Ekosistem' && <Layers className="w-5 h-5" />}
                       {category.label === 'Pimpinan' && <Users className="w-5 h-5" />}
+                      {category.label === 'Investor' && <DollarSign className="w-5 h-5" />}
                       {category.label === 'Edukasi' && <GraduationCap className="w-5 h-5" />}
                       {category.label === 'Member' && <Crown className="w-5 h-5" />}
                       {category.label === 'Media' && <Tv className="w-5 h-5" />}
-                      {category.label === 'Investor' && <DollarSign className="w-5 h-5" />}
+                      
                     </div>
                     <div className="text-left">
                       <span className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
