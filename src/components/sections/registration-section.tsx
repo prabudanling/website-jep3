@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -8,31 +8,26 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Badge } from '@/components/ui/badge'
 import { AnimatedIcon } from '@/components/ui/animated-icon'
-import { 
-  User, 
-  Building2, 
-  MapPin, 
+import {
+  User,
+  Building2,
+  MapPin,
   Map,
-  Phone, 
-  Mail, 
+  Phone,
+  Mail,
   Briefcase,
   CheckCircle2,
   ArrowRight,
   Crown,
   Globe2,
   Trophy,
+  Sparkles,
+  TrendingUp,
+  Clock,
+  Shield,
   Award,
   Star,
-  Gem,
   Zap,
-  Shield,
-  Target,
-  TrendingUp,
-  ChevronUp,
-  Clock,
-  Sparkles,
-  Users,
-  Globe
 } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
 
@@ -53,7 +48,6 @@ export function RegistrationSection() {
     membershipTier: '',
   })
 
-  // Helper function to format number to Indonesian Rupiah
   const formatRp = (price: number): string => {
     if (price === 0) return 'GRATIS'
     return 'Rp' + price.toLocaleString('id-ID')
@@ -81,12 +75,12 @@ export function RegistrationSection() {
         'Akses Marketplace Desa',
         'Sertifikasi Produk Ekspor',
         'Akses Komunitas Tani Digital',
-        'Consultation Gratis Pakar Agrikultur'
+        'Consultation Gratis Pakar Agrikultur',
       ],
     },
     {
       id: 'founding',
-      name: 'Anggota Awal JEP3',
+      name: 'Anggota Awal JE-P3',
       price: formatRp(250000),
       originalPrice: formatRp(1000000),
       discount: '75% OFF',
@@ -102,12 +96,12 @@ export function RegistrationSection() {
         'Akses marketplace & JP3 Pay',
         'Prioritas program pelatihan batch awal',
         'Badge "Founding Member" di profil & sertifikat digital',
-        'Akses grup komunitas eksklusif (WhatsApp/Telegram)',
+        'Akses grup komunitas eksklusif',
         'Free Banner Profile JE-P3',
         'Akses Early-Stage Investment',
         'Priority Customer Support',
         'Exclusive Webinar Series',
-        'Digital Marketing Kit'
+        'Digital Marketing Kit',
       ],
     },
     {
@@ -122,7 +116,7 @@ export function RegistrationSection() {
       recommended: false,
       color: 'from-blue-500 to-cyan-500',
       badge: 'KOLEKTIF',
-      description: 'Modal Rp10 Juta - Aggregator Produk Desa',
+      description: 'Modal Rp10 Juta – Aggregator Produk Desa',
       features: [
         'Akses modul agregasi hasil produksi',
         'Slot prioritas sebagai hub utama di desa/kecamatan',
@@ -135,7 +129,7 @@ export function RegistrationSection() {
         'Training Kepemimpinan Digital',
         'Co-Branding Koperasi Digital',
         'API Integration Partners',
-        'Monthly Performance Report'
+        'Monthly Performance Report',
       ],
     },
     {
@@ -150,14 +144,14 @@ export function RegistrationSection() {
       recommended: false,
       color: 'from-purple-500 to-pink-500',
       badge: 'KECAMATAN',
-      description: 'Level Kecamatan - Monopol Area Eksklusif',
+      description: 'Level Kecamatan – Monopol Area Eksklusif',
       features: [
         'Eksklusif: "Channel Resmi Ekosistem" di wilayah',
-        'Hak mengelola 10-20 desa di wilayahnya',
-        'Akses langsung ke National Board untuk perencanaan',
+        'Hak mengelola 10–20 desa di wilayahnya',
+        'Akses langsung ke National Board',
         'Bagi hasil transaksi & pelatihan wilayah',
         'Desa Sponsorship Program (sponsor 5 desa)',
-        'Logistics Hub Exclusif Kecamatan',
+        'Logistics Hub Eksklusif Kecamatan',
         'Real-time Dashboard Analytics',
         'Territory Protection Guarantee',
         'Priority Export Access',
@@ -165,7 +159,7 @@ export function RegistrationSection() {
         'Digital Transformation Workshop',
         'Regional Networking Events',
         'Annual Strategic Planning Session',
-        'Branding & Marketing Material'
+        'Branding & Marketing Material',
       ],
     },
     {
@@ -180,14 +174,14 @@ export function RegistrationSection() {
       recommended: false,
       color: 'from-violet-500 to-fuchsia-500',
       badge: 'KABUPATEN',
-      description: 'Level Kabupaten - Akses 10-100 Desa',
+      description: 'Level Kabupaten – Akses 10–100 Desa',
       features: [
         'Channel resmi untuk kota/kabupaten besar',
         'Koordinasi koperasi, BUMDes, & pengusaha lokal',
         'Implementasi smart village skala kota',
         'Akses program nasional & regional',
         'Leaderboard nasional & reward system',
-        'Managing 10-100 Desa Access',
+        'Managing 10–100 Desa Access',
         'Distribution Hub Regional',
         'Cross-Region Trade Access',
         'Government Partnership Support',
@@ -198,7 +192,7 @@ export function RegistrationSection() {
         'Global Market Access Priority',
         'AI-Powered Business Intelligence',
         'Custom Mobile App White-label',
-        'Dedicated Account Manager'
+        'Dedicated Account Manager',
       ],
     },
     {
@@ -213,7 +207,7 @@ export function RegistrationSection() {
       recommended: false,
       color: 'from-rose-500 to-orange-500',
       badge: 'PROVINSI',
-      description: 'Level Provinsi - Akses Multi-Kabupaten',
+      description: 'Level Provinsi – Akses Multi-Kabupaten',
       features: [
         'Channel resmi untuk seluruh provinsi',
         'Akses dewan nasional JE-P3',
@@ -234,7 +228,7 @@ export function RegistrationSection() {
         'Revenue Sharing Multi-Tier',
         'Technology Infrastructure Setup',
         'Legal & Compliance Advisory',
-        'Media & PR Campaign Support'
+        'Media & PR Campaign Support',
       ],
     },
     {
@@ -249,14 +243,14 @@ export function RegistrationSection() {
       recommended: false,
       color: 'from-amber-400 to-yellow-500',
       badge: 'STRATEGIS',
-      description: 'Level National - Domination Multi-Sector',
+      description: 'Level Nasional – Domination Multi-Sector',
       features: [
         'Kursi di "National Economic Council" JE-P3',
         'Akses laporan dampak nasional teragregat',
         'Data strategis nasional (bukan individual)',
         'Co-branding program desa digital nasional',
         'Prioritas di semua program pilot nasional',
-        'Access to 83,763 Villages Network',
+        'Access to 83.763 Villages Network',
         'Global Trade Partnership Authority',
         'Sovereign Data Access Right',
         'Multi-Billion Dollar Deal Flow',
@@ -274,7 +268,7 @@ export function RegistrationSection() {
         'Legacy Digital Monument',
         'Lifetime Recognition Award',
         'Succession Planning Support',
-        'Family Wealth Management Access'
+        'Family Wealth Management Access',
       ],
     },
   ]
@@ -283,12 +277,12 @@ export function RegistrationSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 2000))
 
     toast({
       title: 'Pendaftaran Berhasil!',
-      description: 'Terima kasih telah bergabung dengan JE-P3. Tim kami akan segera menghubungi Anda.',
+      description:
+        'Terima kasih telah bergabung dengan JE-P3. Tim kami akan segera menghubungi Anda.',
     })
 
     setFormData({
@@ -301,107 +295,135 @@ export function RegistrationSection() {
       district: '',
       province: '',
       description: '',
+      membershipTier: '',
     })
+    setSelectedTier(null)
     setIsSubmitting(false)
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
+    setFormData(prev => ({
+      ...prev,
       [e.target.name]: e.target.value,
-    })
+    }))
   }
 
   return (
-    <section className="py-20 bg-white dark:bg-gray-900">
+    <section id="registration" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-16">
-          {/* Section Header */}
-          <div className={`text-center space-y-4 transition-all duration-1000 `}>
+          {/* Header */}
+          <div className="text-center space-y-4 animate-fade-in-up">
             <Badge className="px-4 py-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800 animate-pop-in">
               Bergabung Sekarang
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gradient-animate bg-gradient-to-r from-emerald-600 via-amber-600 to-emerald-600 bg-clip-text text-transparent animate-text-reveal">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient-animate bg-gradient-to-r from-emerald-600 via-amber-600 to-emerald-600 bg-clip-text text-transparent animate-text-reveal">
               Jadilah Bagian dari JE-P3
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              Daftar sekarang dan mulai perjalanan transformasi ekonomi Anda bersama ekosistem pengusaha terbesar di Indonesia
+            <p
+              className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed animate-fade-in-up"
+              style={{ animationDelay: '0.2s' }}
+            >
+              Daftar sekarang dan mulai perjalanan transformasi ekonomi Anda bersama ekosistem
+              pengusaha terbesar di Indonesia.
             </p>
           </div>
 
-          {/* Pre-Launch Banner */}
-          <div className="mb-8">
+          {/* Banner Pre-launch */}
+          <div className="mb-8 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <div className="bg-green-900 rounded-2xl p-6 text-center shadow-xl relative overflow-hidden border-2 border-green-800">
-              <div className="absolute inset-0 bg-green-800/30 animate-pulse"></div>
-              <div className="relative z-10">
-                <div className="flex items-center justify-center gap-3 mb-2">
+              <div className="absolute inset-0 bg-green-800/30 animate-pulse" />
+              <div className="relative z-10 space-y-3">
+                <div className="flex items-center justify-center gap-3">
                   <Crown className="w-8 h-8 text-amber-400 animate-pulse" />
                   <h3 className="text-2xl md:text-3xl font-bold text-white">
-                    Membership JE-P3 - Sekali Bayar Seumur Hidup
+                    Membership JE-P3 – Sekali Bayar Seumur Hidup
                   </h3>
                 </div>
                 <p className="text-white/90 text-sm md:text-base">
-                  Jadilah salah satu dari <span className="font-bold text-amber-300">10.000 Founding Member</span> pertama JE-P3!
-                  <span className="block mt-2">Diskon 75% - Berbayar sekali saja, akses seumur hidup!</span>
+                  Jadilah salah satu dari{' '}
+                  <span className="font-bold text-amber-300">10.000 Founding Member</span> pertama
+                  JE-P3!
+                  <span className="block mt-1">
+                    Diskon 75% – bayar sekali saja, akses seumur hidup.
+                  </span>
                 </p>
-                <div className="flex items-center justify-center gap-4 mt-4">
-                  <Badge className="bg-amber-500/90 hover:bg-amber-500 text-white px-4 py-2 rounded-full">
+                <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
+                  <Badge className="bg-amber-500/90 hover:bg-amber-500 text-white px-4 py-2 rounded-full flex items-center gap-2">
                     <TrendingUp className="w-4 h-4" />
-                    Sisa ~7,xxx slot
+                    Sisa ~7.xxx slot
                   </Badge>
-                  <Badge className="bg-amber-500/90 hover:bg-amber-500 text-white px-4 py-2 rounded-full">
+                  <Badge className="bg-amber-500/90 hover:bg-amber-500 text-white px-4 py-2 rounded-full flex items-center gap-2">
                     <Clock className="w-4 h-4" />
-                    Promo Berakhir 28 Februari 2026
+                    Promo berakhir 28 Februari 2026
                   </Badge>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Membership Tiers */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Membership tiers */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in-up">
             {membershipTiers.map((tier, index) => {
               const TierIcon = tier.icon
+              const isSelected = selectedTier === tier.id
               return (
                 <Card
                   key={tier.id}
+                  onClick={() => setSelectedTier(tier.id)}
                   className={`border-2 transition-all hover:shadow-2xl hover:-translate-y-1 card-3d-tilt card-hover-lift cursor-pointer scroll-fade-in visible ${
                     tier.recommended
                       ? 'border-amber-400 dark:border-amber-600 ring-2 ring-amber-200 dark:ring-amber-800 relative overflow-hidden'
                       : 'border-gray-200 dark:border-gray-800 hover:border-emerald-300 dark:hover:border-emerald-700'
-                  }`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
+                  } ${isSelected ? 'border-emerald-500 dark:border-emerald-500' : ''}`}
+                  style={{ transitionDelay: `${index * 80}ms` }}
                 >
                   {tier.recommended && (
                     <div className="absolute top-0 right-0">
-                      <Badge className="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg animate-pulse-glow" style={{ animationDuration: '2s' }}>
+                      <Badge className="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg animate-pulse-glow">
                         Paling Populer
                       </Badge>
                     </div>
                   )}
-                  
-                  {/* Gradient Header */}
+
                   <div className={`bg-gradient-to-br ${tier.color} p-4 -mt-6`}>
                     <div className="flex items-start justify-between gap-3">
-                      <div className={`p-3 bg-white/20 backdrop-blur-sm rounded-xl`}>
+                      <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">
                         <TierIcon className="w-6 h-6 md:w-7 md:h-7 text-white" />
                       </div>
                       <div className="text-right">
-                        <p className="text-xs md:text-sm text-white/80">{tier.price === 'GRATIS' ? 'Beasiswa Digital' : 'Promo Spesial'}</p>
-                        <p className="text-xl md:text-2xl font-bold text-white leading-tight">{tier.price}</p>
+                        <p className="text-xs md:text-sm text-white/80">
+                          {tier.price === 'GRATIS' ? 'Beasiswa Digital' : 'Promo Spesial'}
+                        </p>
+                        <p className="text-xl md:text-2xl font-bold text-white leading-tight">
+                          {tier.price}
+                        </p>
                         {tier.originalPrice && (
-                          <p className="text-xs md:text-sm text-white/70 line-through opacity-60">{tier.originalPrice}</p>
+                          <p className="text-xs md:text-sm text-white/70 line-through opacity-70">
+                            {tier.originalPrice}
+                          </p>
                         )}
                       </div>
                     </div>
                   </div>
 
                   <CardHeader className="space-y-3 pt-4">
-                    <CardTitle className={`text-xl md:text-2xl font-bold ${tier.recommended ? 'text-amber-600 dark:text-amber-400' : 'text-gray-900 dark:text-gray-100'} text-gradient-animate leading-tight`}>
+                    <CardTitle
+                      className={`text-xl md:text-2xl font-bold text-gradient-animate leading-tight ${
+                        tier.recommended
+                          ? 'text-amber-600 dark:text-amber-400'
+                          : 'text-gray-900 dark:text-gray-100'
+                      }`}
+                    >
                       {tier.name}
                     </CardTitle>
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
-                      <Badge variant="outline" className="text-xs sm:text-sm font-semibold text-wrap break-words max-w-full">
+                      <Badge
+                        variant="outline"
+                        className="text-xs sm:text-sm font-semibold text-wrap break-words max-w-full"
+                      >
                         {tier.badge}
                       </Badge>
                       <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
@@ -418,7 +440,7 @@ export function RegistrationSection() {
                       <div className="flex items-center gap-2 px-3 py-2 bg-emerald-50 dark:bg-emerald-950/30 rounded-lg">
                         <Zap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                         <span className="text-sm md:text-base font-semibold text-emerald-700 dark:text-emerald-300">
-                          Diskon Promo: {tier.discount} • Sekali Bayar
+                          Diskon promo: {tier.discount} • sekali bayar
                         </span>
                       </div>
                     )}
@@ -436,10 +458,10 @@ export function RegistrationSection() {
 
                     {tier.features.length > 3 && (
                       <Button
+                        type="button"
                         variant="outline"
                         size="sm"
                         className="w-full text-xs sm:text-sm text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 py-3"
-                        onClick={() => setSelectedTier(tier.id)}
                       >
                         +{tier.features.length - 3} fitur lainnya
                       </Button>
@@ -450,31 +472,38 @@ export function RegistrationSection() {
             })}
           </div>
 
-          {/* Why Join Now - Emotional Storytelling */}
-          <div className="mb-8">
-            <Card className="border-2 border-amber-200 dark:border-amber-800 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-amber-950/30 card-3d-tilt card-hover-lift cursor-pointer animate-shimmer section-fade">
+          {/* Why join now – card harus selalu terlihat (tanpa section-fade) */}
+          <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <Card className="border-2 border-amber-200 dark:border-amber-800 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-amber-950/30 card-3d-tilt card-hover-lift cursor-pointer animate-shimmer">
               <CardContent className="p-8 md:p-12">
                 <div className="text-center space-y-6">
                   <div className="flex justify-center mb-4">
                     <Star className="w-12 h-12 text-amber-500 animate-pulse" />
                   </div>
-                  
                   <h3 className="text-2xl md:text-3xl font-bold text-gradient-animate bg-gradient-to-r from-emerald-600 to-amber-600 bg-clip-text text-transparent">
                     Mengapa Harus Gabung Sekarang?
                   </h3>
-                  
-                  <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 text-left max-w-3xl mx-auto border-2 border-gray-100 dark:border-gray-700">
-                    <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                      <span className="font-bold text-emerald-600 dark:text-emerald-400">Bayangkan 5 tahun ke depan...</span>
+
+                  <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 text-left max-w-3xl mx-auto border-2 border-gray-100 dark:border-gray-700 space-y-4">
+                    <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                      <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                        Bayangkan 5 tahun ke depan...
+                      </span>
                     </p>
                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                      Nama Anda tercatat sebagai salah satu dari <span className="font-semibold text-amber-600 dark:text-amber-400">10.000 founding member</span> yang berani pas pre-launch. Saat desa-desa mulai panen ekspor, saat koperasi menjadi hub global, saat anak-anak muda di desa jadi eksportir, Anda bisa berkata:
+                      Nama Anda tercatat sebagai salah satu dari{' '}
+                      <span className="font-semibold text-amber-600 dark:text-amber-400">
+                        10.000 founding member
+                      </span>{' '}
+                      yang berani pas pre-launch. Saat desa-desa mulai panen ekspor dan koperasi
+                      menjadi hub global, Anda bisa berkata:
                     </p>
                     <p className="text-lg italic text-gray-900 dark:text-gray-100 font-semibold bg-gradient-to-r from-emerald-50 to-amber-50 dark:from-emerald-950/30 dark:to-amber-950/50 px-6 py-4 rounded-lg">
                       "Saya ada di sana sejak baris pertama, bukan penonton belakangan."
                     </p>
-                    <p className="text-gray-600 dark:text-gray-400 mt-2">
-                      Dengan Rp250.000 sekali bayar seumur hidup, Anda mengunci posisi di ekosistem yang nilai transaksinya ditargetkan mencapai Rp1 triliun lebih per tahun.
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Dengan Rp250.000 sekali bayar seumur hidup, Anda mengunci posisi di ekosistem
+                      yang ditargetkan memiliki nilai transaksi Rp1 triliun lebih per tahun.
                     </p>
                   </div>
 
@@ -497,52 +526,55 @@ export function RegistrationSection() {
             </Card>
           </div>
 
-          {/* Registration Form */}
-          <div className={`transition-all duration-1000 `}>
-            <Card className="border-2 border-emerald-200 dark:border-emerald-800 bg-gradient-to-br from-emerald-50 to-amber-50 dark:from-emerald-950/30 dark:to-emerald-950/30 card-3d-tilt card-glow-hover cursor-pointer animate-shimmer section-fade">
+          {/* Form pendaftaran – card juga tanpa section-fade */}
+          <div className="animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+            <Card className="border-2 border-emerald-200 dark:border-emerald-800 bg-gradient-to-br from-emerald-50 to-amber-50 dark:from-emerald-950/30 dark:to-emerald-950/30 card-3d-tilt card-glow-hover cursor-pointer animate-shimmer">
               <CardContent className="p-8 md:p-12">
                 <div className="grid lg:grid-cols-2 gap-8">
-                  {/* Form Info */}
+                  {/* Benefit list */}
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-2xl font-bold text-gradient-animate bg-gradient-to-r from-emerald-600 to-amber-600 bg-clip-text text-transparent animate-fade-in-up">
                         Isi Formulir Pendaftaran
                       </h3>
                       <p className="text-gray-600 dark:text-gray-400">
-                        Lengkapi data Anda untuk mendaftar ke JE-P3
+                        Lengkapi data Anda untuk mendaftar ke JE-P3.
                       </p>
                     </div>
 
                     <div className="space-y-4 stagger-children">
                       {[
                         {
-                          icon: User,
+                          icon: Globe2,
                           title: 'Akses Pasar Global',
-                          description: 'Terhubung langsung dengan 195 negara pembeli',
+                          description: 'Terhubung langsung ke pembeli di 195 negara.',
                         },
                         {
                           icon: Building2,
                           title: 'Infrastruktur Digital Siap Pakai',
-                          description: 'Marketplace, fintech, logistik dalam satu platform',
+                          description: 'Marketplace, fintech, logistik, dan akademi dalam satu platform.',
                         },
                         {
                           icon: Briefcase,
                           title: 'Pendampingan & Pelatihan',
-                          description: 'JE-P3 Academy dengan sertifikasi profesional',
+                          description: 'JE-P3 Academy dengan sertifikasi profesional bertingkat.',
                         },
                         {
-                          icon: CheckCircle2,
+                          icon: Shield,
                           title: 'Transparansi Blockchain',
-                          description: 'Setiap transaksi tercatat dan dapat diverifikasi',
+                          description: 'Setiap transaksi tercatat dan dapat diverifikasi.',
                         },
                       ].map((item, index) => {
                         const Icon = item.icon
                         return (
-                          <div key={index} className="flex gap-4 group cursor-pointer hover:translate-x-2 transition-transform">
+                          <div
+                            key={index}
+                            className="flex gap-4 group cursor-pointer hover:translate-x-2 transition-transform"
+                          >
                             <div className="flex-shrink-0">
                               <AnimatedIcon
                                 animation={index % 2 === 0 ? 'wiggle' : 'scale-pulse'}
-                                delay={index * 100}
+                                delay={index * 120}
                                 duration={2}
                               >
                                 <div className="p-3 bg-emerald-100 dark:bg-emerald-900/50 rounded-full icon-hover-glow icon-hover-lift">
@@ -657,17 +689,27 @@ export function RegistrationSection() {
                             id="membershipTier"
                             name="membershipTier"
                             required
-                            className="w-full pl-10 pr-4 py-3 rounded-lg border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                            className="w-full pl-10 pr-4 py-3 rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
                             value={formData.membershipTier}
                             onChange={handleChange}
                           >
                             <option value="">Pilih Paket Keanggotaan</option>
-                            <option value="founding-member">Founding Member - Rp250.000</option>
-                            <option value="koperasi-partner">Koperasi & BUMDes Partner - Rp1.000.000</option>
-                            <option value="regional-kecamatan">Regional Builder (Kecamatan) - Rp2.500.000</option>
-                            <option value="regional-kabupaten">Regional Builder (Kabupaten) - Rp6.250.000</option>
-                            <option value="regional-provinsi">Regional Builder (Provinsi) - Rp25.000.000</option>
-                            <option value="national-strategic">National Strategic Partner - Rp125.000.000</option>
+                            <option value="founding-member">Founding Member – Rp250.000</option>
+                            <option value="koperasi-partner">
+                              Koperasi & BUMDes Partner – Rp1.000.000
+                            </option>
+                            <option value="regional-kecamatan">
+                              Regional Builder (Kecamatan) – Rp2.500.000
+                            </option>
+                            <option value="regional-kabupaten">
+                              Regional Builder (Kabupaten) – Rp6.250.000
+                            </option>
+                            <option value="regional-provinsi">
+                              Regional Builder (Provinsi) – Rp25.000.000
+                            </option>
+                            <option value="national-strategic">
+                              National Strategic Partner – Rp125.000.000
+                            </option>
                           </select>
                         </div>
                       </div>
@@ -739,16 +781,22 @@ export function RegistrationSection() {
                       )}
                     </Button>
 
-                    <p className="text-center text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-center text-xs md:text-sm text-gray-600 dark:text-gray-400">
                       Dengan mendaftar, Anda menyetujui{' '}
-                      <a href="#" className="text-emerald-600 dark:text-emerald-400 hover:underline">
+                      <a
+                        href="#"
+                        className="text-emerald-600 dark:text-emerald-400 hover:underline"
+                      >
                         Syarat & Ketentuan
                       </a>{' '}
                       dan{' '}
-                      <a href="#" className="text-emerald-600 dark:text-emerald-400 hover:underline">
+                      <a
+                        href="#"
+                        className="text-emerald-600 dark:text-emerald-400 hover:underline"
+                      >
                         Kebijakan Privasi
                       </a>{' '}
-                      JE-P3
+                      JE-P3.
                     </p>
                   </form>
                 </div>
