@@ -177,10 +177,10 @@ export function EcosystemSection() {
                         <div className="mt-1 w-2 h-2 bg-emerald-500 rounded-full flex-shrink-0" />
                         <div>
                           <p className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                            pppdigital.id
+                            pppbisnis.com - JEP3
                           </p>
                           <p className="text-sm text-gray-600 dark:text-gray-400">
-                            Super-platform utama ekosistem.
+                            Platform utama khusus untuk Jaringan Ekosistem Multinasional JE-P3 - KNMP ( Koperasi Nusantara Merah Putih )
                           </p>
                         </div>
                       </div>
@@ -191,7 +191,7 @@ export function EcosystemSection() {
                             ppbbisnis.com
                           </p>
                           <p className="text-sm text-gray-600 dark:text-gray-400">
-                            Portal informasi & pendaftaran.
+                            Super-platform khusus untuk Pendidikan / CALEG / Pelatihan / KARIR KADER / Internal Partai Persatuan Pembangunan ( PPP )
                           </p>
                         </div>
                       </div>
