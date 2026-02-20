@@ -70,6 +70,14 @@ const menuCategories = [
       { name: 'Bakordeka', href: '#bakordeka', icon: Users, description: 'Badan Koordinasi Desa' },
     ]
   },
+    {
+    label: 'Investor',
+    items: [
+      { name: 'Peluang Investasi', href: '#investor', icon: TrendingUp, description: 'Invest & grow' },
+      { name: 'Proyeksi Keuangan', href: '#financial', icon: DollarSign, description: 'ROI projections' },
+      { name: 'Dokumen', href: '#documents', icon: FileText, description: 'Pitch deck & more' },
+    ]
+  }
   {
     label: 'Edukasi',
     items: [
@@ -97,14 +105,7 @@ const menuCategories = [
       { name: 'Berita', href: '#news', icon: Newspaper, description: 'Update terkini' },
     ]
   },
-  {
-    label: 'Investor',
-    items: [
-      { name: 'Peluang Investasi', href: '#investor', icon: TrendingUp, description: 'Invest & grow' },
-      { name: 'Proyeksi Keuangan', href: '#financial', icon: DollarSign, description: 'ROI projections' },
-      { name: 'Dokumen', href: '#documents', icon: FileText, description: 'Pitch deck & more' },
-    ]
-  }
+
 ]
 
 // Mobile Menu Component with Portal
