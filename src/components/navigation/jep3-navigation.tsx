@@ -58,8 +58,8 @@ const menuCategories = [
       { name: 'Jasa', href: '#jasa', icon: Wrench, description: 'Layanan pendukung' },
       { name: 'Holding', href: '#holding', icon: Building2, description: 'Grup usaha' },
       { name: 'Trading', href: '#trading', icon: ShoppingCart, description: 'B2B & B2C' },
-      { name: 'Koperasi', href: '#koperasi', icon: Building1, description: 'KNMP' },
-      { name: 'UKM-UMKM', href: '#UKM-UMKM', icon: Building1, description: 'UKM-UMKM' },
+      { name: 'Koperasi', href: '#koperasi', icon: Building2, description: 'KNMP' },
+      { name: 'UKM-UMKM', href: '#UKM-UMKM', icon: Building2, description: 'UKM-UMKM' },
     ]
   },
   {
