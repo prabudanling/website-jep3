@@ -71,7 +71,7 @@ const menuCategories = [
     ]
   },
     {
-    label: 'Investasi Menguntungkan',
+    label: 'Investasi',
     items: [
       { name: 'Investasi Menguntungkan', href: '#investor', icon: TrendingUp, description: 'Invest & grow' },
       { name: 'Waktu Investasi', href: '#financial', icon: DollarSign, description: 'ROI projections' },
