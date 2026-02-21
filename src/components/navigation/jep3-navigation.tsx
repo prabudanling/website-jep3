@@ -71,11 +71,11 @@ const menuCategories = [
     ]
   },
     {
-    label: 'Investor',
+    label: 'Investasi Menguntungkan',
     items: [
-      { name: 'Peluang Investasi', href: '#investor', icon: TrendingUp, description: 'Invest & grow' },
-      { name: 'Proyeksi Keuangan', href: '#financial', icon: DollarSign, description: 'ROI projections' },
-      { name: 'Dokumen', href: '#documents', icon: FileText, description: 'Pitch deck & more' },
+      { name: 'Investasi Menguntungkan', href: '#investor', icon: TrendingUp, description: 'Invest & grow' },
+      { name: 'Waktu Investasi', href: '#financial', icon: DollarSign, description: 'ROI projections' },
+      { name: 'Dokumen Investasi', href: '#documents', icon: FileText, description: 'Pitch deck & more' },
     ]
   },
   {
@@ -187,7 +187,7 @@ function MobileMenu({
                       category.label === 'Beranda' ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400' :
                       category.label === 'Ekosistem' ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400' :
                       category.label === 'Pimpinan' ? 'bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400' :
-                      category.label === 'Investor' ? 'bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400' :
+                      category.label === 'Investasi' ? 'bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400' :
                       category.label === 'Edukasi' ? 'bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400' :
                       category.label === 'Member' ? 'bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400' :
                       category.label === 'Media' ? 'bg-pink-100 dark:bg-pink-900/50 text-pink-600 dark:text-pink-400' :
@@ -196,7 +196,7 @@ function MobileMenu({
                       {category.label === 'Beranda' && <Home className="w-5 h-5" />}
                       {category.label === 'Ekosistem' && <Layers className="w-5 h-5" />}
                       {category.label === 'Pimpinan' && <Users className="w-5 h-5" />}
-                      {category.label === 'Investor' && <DollarSign className="w-5 h-5" />}
+                      {category.label === 'Investasi' && <DollarSign className="w-5 h-5" />}
                       {category.label === 'Edukasi' && <GraduationCap className="w-5 h-5" />}
                       {category.label === 'Member' && <Crown className="w-5 h-5" />}
                       {category.label === 'Media' && <Tv className="w-5 h-5" />}
